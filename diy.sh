@@ -37,7 +37,7 @@ sed -i 's/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell \$(SCRIPT_DIR)\/kconfig.pl \$(LI
 sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
 
 if [[ "$MOD"  == "mt7621" ]]; then
-  sed -i "s/kmod-mt7603/kmod-mt7603e/" target/linux/ramips/image/mt7621.mk
+  #sed -i "s/kmod-mt7603/kmod-mt7603e/" target/linux/ramips/image/mt7621.mk
   grep mt7603 target/linux/ramips/image/mt7621.mk 
 fi
 
