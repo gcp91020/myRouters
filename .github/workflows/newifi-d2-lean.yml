@@ -23,7 +23,7 @@ env:
   #REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.lean
-  CONFIG_FILE: .config
+  CONFIG_FILE: config.newifi-d2-lean
   DIY_SH: diy.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
