@@ -35,7 +35,7 @@ env:
   #REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-21.02
-  FEEDS_CONF: feeds.conf.default
+  FEEDS_CONF: immortalwrt.feeds.conf
   CONFIG_FILE: newifi-d2.config
   DIY_SH: diy.sh
   SSH_ACTIONS: false
