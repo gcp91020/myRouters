@@ -77,7 +77,7 @@ jobs:
     - name: 加载自定义配置
       run: |
         [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && /bin/cp -f $CONFIG_FILE openwrt/.config
+        [ -e $CONFIG_FILE ] && /bin/cp -f $CONFIG_FILE .config && /bin/cp -f $CONFIG_FILE openwrt/.config
         chmod +x $DIY_SH
         cd openwrt
         ../$DIY_SH
