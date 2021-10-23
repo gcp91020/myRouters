@@ -73,7 +73,7 @@ jobs:
 
     - name: 更新安装提要
       run: |
-        [ -e $FEEDS_CONF ] && /bin/cp -f $FEEDS_CONF openwrt/
+        [ -e $FEEDS_CONF ] && /bin/cp -f $FEEDS_CONF openwrt/feeds.conf.default
         cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a && ./scripts/feeds install -a && cd ..
 
     - name: 加载自定义配置
