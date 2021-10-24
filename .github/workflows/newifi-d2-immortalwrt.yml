@@ -8,7 +8,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Build immortalwrt Newifi-d2 Immortal
+name: Build immortal Newifi-d2 Immortalwrt
 
 on:
   repository_dispatch:
