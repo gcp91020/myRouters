@@ -83,8 +83,8 @@ jobs:
         chmod +x $DIY_SH
         chmod +x $DIY1_SH        
         cd openwrt
-        wc -l $DIY_SH
-        wc -l $DIY1_SH
+        ls -l $DIY_SH
+        ls -l $DIY1_SH
         ../$DIY_SH
         ../$DIY1_SH
         cd ..
