@@ -810,7 +810,6 @@ CONFIG_PACKAGE_luci=y
 
 CONFIG_PACKAGE_luci-base=y
 
-CONFIG_LUCI_LANG_zh-cn=y
 
 CONFIG_PACKAGE_luci-mod-admin-full=y
 CONFIG_PACKAGE_luci-newapi=y
@@ -842,15 +841,6 @@ CONFIG_PACKAGE_luci-lib-nixio=y
 CONFIG_PACKAGE_luci-lib-nixio_openssl=y
 
 CONFIG_PACKAGE_default-settings=y
-CONFIG_PACKAGE_luci-i18n-base-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-firewall-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-nlbwmon-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-samba-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-ssr-plus-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-upnp-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-wireguard-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-wol-zh-cn=y
 
 
 CONFIG_POSTFIX_TLS=y
