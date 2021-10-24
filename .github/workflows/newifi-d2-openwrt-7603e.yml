@@ -7,7 +7,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Build OpenWrt Newifi-d2
+name: Build OpenWrt Newifi-d2 7603e
 
 on:
   repository_dispatch:
