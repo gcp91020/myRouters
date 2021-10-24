@@ -70,7 +70,7 @@ jobs:
         chmod +x $DIY_SH
         chmod +x $DIY2_SH
         cd openwrt && ../$DIY_SH && cd ..
-        ./$DIY2_SH 
+        cd openwrt && ../$DIY2_SH && cd .. 
         #copy files to openwrt
     - name: SSH connection to Actions
   #      uses: csexton/debugger-action@master
