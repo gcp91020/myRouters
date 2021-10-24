@@ -39,6 +39,9 @@ sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
 if [[ "$MOD"  == "mt7621" ]]; then
   #sed -i "s/kmod-mt7603/kmod-mt7603e/" target/linux/ramips/image/mt7621.mk
   grep mt7603 target/linux/ramips/image/mt7621.mk 
-  echo "\nip route add 192.168.128.0/24 via 192.168.125.253\n" >> package/network/config/firewall/files/firewall.hotplug
+  echo "ip route add 192.168.128.0/24 via 192.168.125.253" >> package/network/config/firewall/files/firewall.hotplug
+fi
+if [[ "$MOD"  == "mt7620" ]]; then
+  echo "ip route add 192.168.120.0/24 via 192.168.125.254" >> package/network/config/firewall/files/firewall.hotplug
 fi
 
