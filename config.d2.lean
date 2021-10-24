@@ -776,3 +776,5 @@ CONFIG_PACKAGE_shellsync=y
 CONFIG_STRACE_NONE=y
 CONFIG_PACKAGE_ubi-utils=y
 CONFIG_PACKAGE_tcpdump=y
+CONFIG_PACKAGE_libcurl=y
+CONFIG_PACKAGE_libwolfssl=y
