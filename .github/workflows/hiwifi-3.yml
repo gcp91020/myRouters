@@ -35,8 +35,8 @@ env:
   #REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: hiwifi-3.config
+  FEEDS_CONF: feeds.conf.hiwifi-3
+  CONFIG_FILE: config.hiwifi-3
   DIY_SH: diy.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
