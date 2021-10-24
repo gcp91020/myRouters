@@ -209,6 +209,7 @@ CONFIG_FEED_packages=y
 CONFIG_FEED_luci=y
 CONFIG_FEED_routing=y
 CONFIG_FEED_telephony=y
+CONFIG_FEED_ssrplus=y
 
 CONFIG_PACKAGE_base-files=y
 CONFIG_PACKAGE_block-mount=y
@@ -535,6 +536,7 @@ CONFIG_PACKAGE_libc=y
 CONFIG_PACKAGE_libgcc=y
 CONFIG_PACKAGE_libpthread=y
 CONFIG_PACKAGE_librt=y
+CONFIG_PACKAGE_libstdcpp=y
 CONFIG_PACKAGE_logd=y
 CONFIG_PACKAGE_mtd=y
 CONFIG_PACKAGE_netifd=y
@@ -543,6 +545,7 @@ CONFIG_PACKAGE_opkg=y
 CONFIG_PACKAGE_procd=y
 
 
+CONFIG_PACKAGE_resolveip=y
 CONFIG_PACKAGE_rpcd=y
 CONFIG_PACKAGE_swconfig=y
 CONFIG_PACKAGE_ubox=y
@@ -609,20 +612,24 @@ CONFIG_PACKAGE_kmod-lib-textsearch=y
 
 CONFIG_PACKAGE_kmod-nls-base=y
 
+CONFIG_PACKAGE_kmod-ip6tables=y
 CONFIG_PACKAGE_kmod-ipt-conntrack=y
 CONFIG_PACKAGE_kmod-ipt-core=y
 CONFIG_PACKAGE_kmod-ipt-fullconenat=y
 CONFIG_PACKAGE_kmod-ipt-ipset=y
 CONFIG_PACKAGE_kmod-ipt-nat=y
 CONFIG_PACKAGE_kmod-ipt-raw=y
+CONFIG_PACKAGE_kmod-ipt-tproxy=y
 CONFIG_PACKAGE_kmod-nf-conntrack=y
 CONFIG_PACKAGE_kmod-nf-conntrack-netlink=y
 CONFIG_PACKAGE_kmod-nf-conntrack6=y
 CONFIG_PACKAGE_kmod-nf-ipt=y
+CONFIG_PACKAGE_kmod-nf-ipt6=y
 CONFIG_PACKAGE_kmod-nf-nat=y
 CONFIG_PACKAGE_kmod-nf-nathelper=y
 CONFIG_PACKAGE_kmod-nf-nathelper-extra=y
 CONFIG_PACKAGE_kmod-nf-reject=y
+CONFIG_PACKAGE_kmod-nf-reject6=y
 CONFIG_PACKAGE_kmod-nfnetlink=y
 
 CONFIG_PACKAGE_kmod-macvlan=y
@@ -731,6 +738,7 @@ CONFIG_QT5_INCLUDE_ATOMIC=y
 
 
 
+CONFIG_PACKAGE_libmbedtls=y
 CONFIG_PACKAGE_libopenssl=y
 
 CONFIG_OPENSSL_OPTIMIZE_SPEED=y
@@ -756,18 +764,40 @@ CONFIG_PACKAGE_libopenssl-conf=y
 
 
 
+CONFIG_PACKAGE_boost=y
+
+
+CONFIG_boost-compile-visibility-hidden=y
+CONFIG_boost-static-and-shared-libs=y
+CONFIG_boost-runtime-shared=y
+CONFIG_boost-variant-release=y
+
+
+CONFIG_PACKAGE_boost-date_time=y
+CONFIG_PACKAGE_boost-program_options=y
+CONFIG_PACKAGE_boost-system=y
+
 CONFIG_PACKAGE_libblobmsg-json=y
+CONFIG_PACKAGE_libbpf=y
+CONFIG_PACKAGE_libelf=y
+CONFIG_PACKAGE_libev=y
 CONFIG_PACKAGE_libiwinfo=y
 CONFIG_PACKAGE_libjson-c=y
 CONFIG_PACKAGE_liblua=y
+CONFIG_PACKAGE_libmnl=y
 CONFIG_PACKAGE_libnl-tiny=y
 CONFIG_PACKAGE_libpcre=y
+CONFIG_PACKAGE_libsodium=y
+
+CONFIG_LIBSODIUM_MINIMAL=y
+
 CONFIG_PACKAGE_libubox=y
 CONFIG_PACKAGE_libubus=y
 CONFIG_PACKAGE_libubus-lua=y
 CONFIG_PACKAGE_libuci=y
 CONFIG_PACKAGE_libuci-lua=y
 CONFIG_PACKAGE_libuclient=y
+CONFIG_PACKAGE_libudns=y
 CONFIG_PACKAGE_libustream-openssl=y
 CONFIG_PACKAGE_libuuid=y
 CONFIG_PACKAGE_rpcd-mod-rrdns=y
@@ -789,6 +819,14 @@ CONFIG_PACKAGE_luci-app-ddns=y
 CONFIG_PACKAGE_luci-app-firewall=y
 CONFIG_PACKAGE_luci-app-nlbwmon=y
 CONFIG_PACKAGE_luci-app-samba=y
+CONFIG_PACKAGE_luci-app-ssr-plus=y
+
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_libustream-openssl=y
+
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Client=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_Obfs=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
 CONFIG_PACKAGE_luci-app-upnp=y
 CONFIG_PACKAGE_luci-app-wireguard=y
 CONFIG_PACKAGE_luci-app-wol=y
@@ -809,6 +847,7 @@ CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-firewall-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-nlbwmon-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-samba-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-ssr-plus-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-upnp-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-wireguard-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-wol-zh-cn=y
@@ -837,6 +876,7 @@ CONFIG_PACKAGE_wget-ssl=y
 
 CONFIG_PACKAGE_iptables=y
 CONFIG_PACKAGE_iptables-mod-fullconenat=y
+CONFIG_PACKAGE_iptables-mod-tproxy=y
 
 
 CONFIG_PACKAGE_miniupnpd=y
@@ -846,6 +886,7 @@ CONFIG_PACKAGE_miniupnpd=y
 CONFIG_PACKAGE_ddns-scripts=y
 CONFIG_PACKAGE_ddns-scripts_aliyun=y
 CONFIG_PACKAGE_ddns-scripts_dnspod=y
+CONFIG_PACKAGE_dns2socks=y
 CONFIG_DNSPROXY_COMPRESS_UPX=y
 
 
@@ -861,6 +902,7 @@ CONFIG_OPENLDAP_DEBUG=y
 
 
 
+CONFIG_PACKAGE_ip-full=y
 
 
 
@@ -872,6 +914,14 @@ CONFIG_PACKAGE_wireguard-tools=y
 
 
 
+CONFIG_PACKAGE_microsocks=y
+CONFIG_PACKAGE_pdnsd-alt=y
+CONFIG_PACKAGE_shadowsocks-libev-ss-local=y
+CONFIG_PACKAGE_shadowsocks-libev-ss-redir=y
+CONFIG_PACKAGE_shadowsocksr-libev-ssr-check=y
+CONFIG_PACKAGE_shadowsocksr-libev-ssr-local=y
+CONFIG_PACKAGE_shadowsocksr-libev-ssr-redir=y
+CONFIG_PACKAGE_trojan=y
 CONFIG_PACKAGE_uhttpd=y
 CONFIG_PACKAGE_uhttpd-mod-ubus=y
 
@@ -880,6 +930,9 @@ CONFIG_PACKAGE_uhttpd-mod-ubus=y
 
 CONFIG_BAIDUPCS_WEB_COMPRESS_UPX=y
 CONFIG_PACKAGE_etherwake=y
+CONFIG_PACKAGE_ipset=y
+CONFIG_PACKAGE_ipt2socks=y
+CONFIG_PACKAGE_libipset=y
 CONFIG_PACKAGE_nlbwmon=y
 CONFIG_NPC_COMPRESS_UPX=y
 CONFIG_NPS_COMPRESS_UPX=y
@@ -887,8 +940,11 @@ CONFIG_PACKAGE_ppp=y
 CONFIG_PACKAGE_ppp-mod-pppoe=y
 CONFIG_PACKAGE_samba36-server=y
 CONFIG_PACKAGE_SAMBA_MAX_DEBUG_LEVEL=-1
+CONFIG_PACKAGE_simple-obfs-client=y
+CONFIG_PACKAGE_tcping=y
 CONFIG_PACKAGE_uclient-fetch=y
 CONFIG_PACKAGE_wol=y
+CONFIG_XRAY_PLUGIN_COMPRESS_UPX=y
 
 
 
@@ -915,6 +971,8 @@ CONFIG_PACKAGE_coremark=y
 CONFIG_COREMARK_OPTIMIZE_O3=y
 CONFIG_COREMARK_ENABLE_MULTITHREADING=y
 CONFIG_COREMARK_NUMBER_OF_THREADS=32
+CONFIG_PACKAGE_coreutils=y
+CONFIG_PACKAGE_coreutils-base64=y
 CONFIG_PACKAGE_iwinfo=y
 CONFIG_PACKAGE_jshn=y
 CONFIG_PACKAGE_libjson-script=y
@@ -922,4 +980,3 @@ CONFIG_PACKAGE_openssl-util=y
 CONFIG_PACKAGE_shellsync=y
 CONFIG_STRACE_NONE=y
 CONFIG_PACKAGE_ubi-utils=y
-
