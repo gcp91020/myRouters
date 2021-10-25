@@ -86,6 +86,8 @@ jobs:
         chmod +x $DIY_SH
         ls -l $DIY_SH 
         cd openwrt && ../$DIY_SH && cd ..
+        sed -i "s/--disable-tests/--disable-tests --enable-m4_pattern_allow/" tools/libressl/Makefile
+        cat tools/libressl/Makefile
     - name: SSH connection to Actions
   #      uses: csexton/debugger-action@master
       if: env.SSH_ACTIONS == 'true'
