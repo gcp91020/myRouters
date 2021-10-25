@@ -37,8 +37,8 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.openwrt
   CONFIG_FILE: config.d2.7603e
-  DIY_SH: diy.sh
-  DIY1_SH: diy1.sh
+  DIY_SH: diy-openwrt-7603e.sh
+  #DIY1_SH: diy1.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
@@ -81,13 +81,7 @@ jobs:
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_SH
-        chmod +x $DIY1_SH        
-        cd openwrt
-        ls -l $DIY_SH
-        ls -l $DIY1_SH
-        ../$DIY_SH
-        ../$DIY1_SH
-        cd ..
+        cd openwrt && ls -l $DIY_SH && ../$DIY_SH && cd ..
     - name: SSH connection to Actions
   #      uses: csexton/debugger-action@master
       if: env.SSH_ACTIONS == 'true'
