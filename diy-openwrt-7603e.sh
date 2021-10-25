@@ -29,7 +29,7 @@ if [[ "$MOD"  == "mt7620" ]]; then
 fi
 
 #current directory is openwrt
-git config --global http.sslverify false && git clone --depth 1 master -b https://github.com/coolsnowwolf/lede lede
+git config --global http.sslverify false && git clone https://github.com/coolsnowwolf/lede lede
 /bin/cp -rf lede/package/lean/mt package/
 /bin/cp -rf lede/package/lean/mtk-eip93 package/
 rm -rf target/linux/ramips/mt7621
