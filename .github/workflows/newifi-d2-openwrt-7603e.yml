@@ -65,6 +65,7 @@ jobs:
         sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2004)
         sudo apt-get remove autoconf
         wget https://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.gz &&  tar zxvf autoconf-2.71.tar.gz &&  cd autoconf-2.71 && ./configure && make && sudo make install && cd ..
+        sudo apt-get install -y gettext gettext-devel
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
