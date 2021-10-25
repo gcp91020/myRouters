@@ -81,7 +81,8 @@ jobs:
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_SH
-        cd openwrt && ls -l $DIY_SH && ../$DIY_SH && cd ..
+        ls -l $DIY_SH 
+        cd openwrt && ../$DIY_SH && cd ..
     - name: SSH connection to Actions
   #      uses: csexton/debugger-action@master
       if: env.SSH_ACTIONS == 'true'
