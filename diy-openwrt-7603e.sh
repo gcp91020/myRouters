@@ -19,15 +19,6 @@ sed -i 's/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell \$(SCRIPT_DIR)\/kconfig.pl \$(LI
 # modify openwrt/blob/master/include/target.mk, conflict with dnsmasq-full
 sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
 
-if [[ "$MOD"  == "mt7621" ]]; then
-  #sed -i "s/kmod-mt7603/kmod-mt7603e/" target/linux/ramips/image/mt7621.mk
-  grep mt7603 target/linux/ramips/image/mt7621.mk 
-  echo "ip route add 192.168.128.0/24 via 192.168.125.253" >> package/network/config/firewall/files/firewall.hotplug
-fi
-if [[ "$MOD"  == "mt7620" ]]; then
-  echo "ip route add 192.168.120.0/24 via 192.168.125.254" >> package/network/config/firewall/files/firewall.hotplug
-fi
-
 #current directory is openwrt
 git config --global http.sslverify false && git clone https://github.com/coolsnowwolf/lede lede
 /bin/cp -rf lede/package/lean/mt package/
@@ -41,5 +32,14 @@ ls -l target/linux/ramips/image/mt7621.mk
 /bin/cp -f lede/
 
 rm -rf lede
+
+if [[ "$MOD"  == "mt7621" ]]; then
+  #sed -i "s/kmod-mt7603/kmod-mt7603e/" target/linux/ramips/image/mt7621.mk
+  grep mt7603 target/linux/ramips/image/mt7621.mk 
+  echo "ip route add 192.168.128.0/24 via 192.168.125.253" >> package/network/config/firewall/files/firewall.hotplug
+fi
+if [[ "$MOD"  == "mt7620" ]]; then
+  echo "ip route add 192.168.120.0/24 via 192.168.125.254" >> package/network/config/firewall/files/firewall.hotplug
+fi
 
 
