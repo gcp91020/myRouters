@@ -89,9 +89,9 @@ jobs:
         cd openwrt 
         sed -i "s/--disable-tests/--disable-tests --enable-m4_pattern_allow/" tools/libressl/Makefile
         cat tools/libressl/Makefile
-        sed -i "s/PKG_VERSION:=2.70/PKG_VERSION:=2.71/" devel/autoconf/Makefile
-        sed -i "s/fa9e227860d9d845c0a07f63b88c8d7a2ae1aa2345fb619384bb8accc19fecc6/f14c83cfebcc9427f2c3cea7258bd90df972d92eb26752da4ddad81c87a0faa4/" devel/autoconf/Makefile
-        cat devel/autoconf/Makefile
+        sed -i "s/PKG_VERSION:=2.70/PKG_VERSION:=2.71/" tools/autoconf/Makefile
+        sed -i "s/fa9e227860d9d845c0a07f63b88c8d7a2ae1aa2345fb619384bb8accc19fecc6/f14c83cfebcc9427f2c3cea7258bd90df972d92eb26752da4ddad81c87a0faa4/" tools/autoconf/Makefile
+        cat tools/autoconf/Makefile
         cd ..
     - name: SSH connection to Actions
   #      uses: csexton/debugger-action@master
