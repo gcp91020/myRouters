@@ -29,9 +29,9 @@ rm -rf target/linux/ramips/mt7621
 ls -l package/mt
 ls -l target/linux/ramips/mt7621
 ls -l target/linux/ramips/image/mt7621.mk 
-rm 0rf tar devel/autoconf
-/bin/cp -rf lede/tools/autoconf dev/
-ls -l dev/
+#rm -rf tar devel/autoconf
+#/bin/cp -rf lede/tools/autoconf dev/
+#ls -l dev/
 
 rm -rf lede
 
