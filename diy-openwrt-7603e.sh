@@ -1,23 +1,6 @@
 #!/bin/bash
 set -x
-#=================================================
-# Description: DIY script
-# Lisence: MIT
-# Author: P3TERX
-# Blog: https://p3terx.com
-#=================================================
-# Modify default IP
-# sed -i 's/192.168.1.1/192.168.5.201/g' package/base-files/files/bin/config_generate
-
-# Modify the version number
-# sed -i 's/OpenWrt/Leopard build $(date "+%Y.%m.%d") @ OpenWrt/g' package/default-settings/files/zzz-default-settings
-
-# 添加新的主题包
-# git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/lean/luci-theme-opentomcat
-
-# 去除默认主题
-# sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
-
+#
 # current directory is openwrt
 CONF_FILE=".config"
 MOD=`egrep "^CONFIG_TARGET_ramips_[^_]+=y" $CONF_FILE`
@@ -44,3 +27,19 @@ fi
 if [[ "$MOD"  == "mt7620" ]]; then
   echo "ip route add 192.168.120.0/24 via 192.168.125.254" >> package/network/config/firewall/files/firewall.hotplug
 fi
+
+#current directory is openwrt
+git config --global http.sslverify false && git clone --depth 1 master -b https://github.com/coolsnowwolf/lede lede
+/bin/cp -rf lede/package/lean/mt package/
+/bin/cp -rf lede/package/lean/mtk-eip93 package/
+rm -rf target/linux/ramips/mt7621
+/bin/cp -rf lede/target/linux/ramips/mt7621 target/linux/ramips/
+/bin/cp -rf lede/target/linux/ramips/image/mt7621.mk target/linux/ramips/image/mt7621.mk 
+ls -l package/mt
+ls -l target/linux/ramips/mt7621
+ls -l target/linux/ramips/image/mt7621.mk 
+/bin/cp -f lede/
+
+rm -rf lede
+
+
