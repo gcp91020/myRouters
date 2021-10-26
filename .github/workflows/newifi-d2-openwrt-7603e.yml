@@ -79,6 +79,7 @@ jobs:
         cat tools/autoconf/Makefile
         
         sed -i "s/HOST_FIXUP/#HOST_FIXUP/" tools/dosfstools/Makefile
+        cat tools/dosfstools/Makefile
         
         #rm -rf tools/libressl        
         #wget https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.4.1.tar.gz 
