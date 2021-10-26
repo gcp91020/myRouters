@@ -47,6 +47,32 @@ grep mac_addr target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.
 
 rm -rf lede
 
+sed -i "s/PKG_VERSION:=2.69/PKG_VERSION:=2.71/" tools/autoconf/Makefile
+sed -i "s/64ebcec9f8ac5b2487125a86a7760d2591ac9e1d3dbd59489633f9de62a57684/f14c83cfebcc9427f2c3cea7258bd90df972d92eb26752da4ddad81c87a0faa4/" tools/autoconf/Makefile
+rm -rf tools/autoconf/patches
+cat tools/autoconf/Makefile
+
+sed -i "s/HOST_FIXUP/#HOST_FIXUP/" tools/dosfstools/Makefile
+cat tools/dosfstools/Makefile
+
+#rm -rf tools/libressl        
+#wget https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.4.1.tar.gz 
+#cd tools && tar zxvf ../libressl-3.4.1.tar.gz 
+#mv libressl-3.4.1 libressl
+#cd libressl
+
+sed -i '/HOST_BUILD_PARALLEL:=1/a PKG_BUILD_DEPENDS:=gettext libiconv' tools/libressl/Makefile
+sed -i "s/PKG_VERSION:=3.3.4/PKG_VERSION:=3.4.1/" tools/libressl/Makefile
+sed -i "s/bcce767a3fed252bfd1210f8a7e3505a2b54d3008f66e43d9b95e3f30c072931/107ceae6ca800e81cb563584c16afa36d6c7138fade94a2b3e9da65456f7c61c/" tools/libressl/Makefile
+cat tools/libressl/Makefile
+
+#./configure && make && sudo make install 
+#cd ../..
+#sed -i "s/--disable-tests/--disable-tests --enable-m4_pattern_allow/" tools/libressl/Makefile
+#sed -i 's/disable-tests/disable-tests /' tools/libressl/configure.ac
+#cat tools/libressl/Makefile
+
+
 if [[ "$MOD"  == "mt7621" ]]; then
   #sed -i "s/kmod-mt7603/kmod-mt7603e/" target/linux/ramips/image/mt7621.mk
   grep mt7603 target/linux/ramips/image/mt7621.mk 
