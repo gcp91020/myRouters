@@ -72,6 +72,12 @@ cat tools/libressl/Makefile
 #sed -i 's/disable-tests/disable-tests /' tools/libressl/configure.ac
 #cat tools/libressl/Makefile
 
+#automake 又出问题了 WARNING: 'automake-1.16' is missing on your system.
+#rm -rf tools/automake
+wget https://ftp.gnu.org/gnu/automake/automake-1.16.tar.gz
+tar zxvf automake-1.16.tar.gz
+cd automake-1.16 && ./configure && make && sudo make install && cd ..
+
 
 if [[ "$MOD"  == "mt7621" ]]; then
   #sed -i "s/kmod-mt7603/kmod-mt7603e/" target/linux/ramips/image/mt7621.mk
