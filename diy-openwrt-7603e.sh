@@ -36,10 +36,9 @@ ls -l target/linux/ramips/files/drivers/net/ethernet
 /bin/cp -f lede/target/linux/ramips/patches-5.10/999-fix-hwnat.patch target/linux/ramips/patches-5.10/999-fix-hwnat.patch
 
 #怎么 of_get_mac_address 不一致了呢?
-sed -i '/.*mac_addr = of_get_mac_address.*/a \\tof_get_mac_address(priv->dev->of_node, dev->dev_addr);' target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c
-sed -i 's/\tmac_addr = of_get_mac_address/\t#mac_addr = of_get_mac_address/' target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c
-sed -i 's=if (!IS_ERR_OR_NULL(mac_addr))=#if (!IS_ERR_OR_NULL(mac_addr))=' target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c
-sed -i 's=ether_addr_copy(dev->dev_addr, mac_addr);=#ether_addr_copy(dev->dev_addr, mac_addr);=' target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c
+sed -i '/\tmac_addr = of_get_mac_address/i \\tof_get_mac_address(priv->dev->of_node, dev->dev_addr);' target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c
+sed -i '/\tmac_addr = of_get_mac_address/i \/\*' target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c
+sed -i '/.*ether_addr_copy(dev->dev_addr, mac_addr);/a \*\/' target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c
 grep mac_addr target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c
 
 #rm -rf tar devel/autoconf
