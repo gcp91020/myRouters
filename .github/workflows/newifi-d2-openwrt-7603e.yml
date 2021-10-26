@@ -93,7 +93,7 @@ jobs:
         rm -rf tools/libressl
         wget https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.4.1.tar.gz 
         cd tools && tar zxvf ../libressl-3.4.1.tar.gz 
-        cd libressl 
+        cd libressl-3.4.1
         sed -i '/HOST_BUILD_PARALLEL:=1/a PKG_BUILD_DEPENDS:=gettext libiconv' tools/libressl/Makefile
         ./configure --enable-m4_pattern_allow && make && sudo make install 
         cd ../..
