@@ -91,6 +91,8 @@ jobs:
         rm -rf tools/autoconf/patches
         cat tools/autoconf/Makefile
         rm -rf tools/libressl
+        sed -i "s/HOST_FIXUP/#HOST_FIXUP/" tools/dosfstools/Makefile
+        
         wget https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.4.1.tar.gz 
         cd tools && tar zxvf ../libressl-3.4.1.tar.gz 
         cd libressl-3.4.1
@@ -100,7 +102,6 @@ jobs:
         #sed -i "s/--disable-tests/--disable-tests --enable-m4_pattern_allow/" tools/libressl/Makefile
         #sed -i "s/PKG_VERSION:=3.3.4/PKG_VERSION:=3.4.1/" tools/libressl/Makefile
         #sed -i "s/bcce767a3fed252bfd1210f8a7e3505a2b54d3008f66e43d9b95e3f30c072931/107ceae6ca800e81cb563584c16afa36d6c7138fade94a2b3e9da65456f7c61c/" tools/libressl/Makefile
-        
         #sed -i 's/disable-tests/disable-tests /' tools/libressl/configure.ac
         #cat tools/libressl/Makefile
         cd ..
