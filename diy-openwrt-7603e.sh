@@ -78,6 +78,12 @@ wget https://ftp.gnu.org/gnu/automake/automake-1.16.5.tar.gz
 tar zxvf automake-1.16.5tar.gz
 cd automake-1.16.5 && ./configure && make && sudo make install && cd ..
 
+#package/utils/util-linux 过不去了
+wget https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/util-linux-2.37.2.tar.gz
+tar zxvf util-linux-2.37.2.tar.gz
+rm -rf package/utils/util-linux
+/bin/cp -rf util-linux-2.37.2 package/utils/
+
 
 if [[ "$MOD"  == "mt7621" ]]; then
   #sed -i "s/kmod-mt7603/kmod-mt7603e/" target/linux/ramips/image/mt7621.mk
