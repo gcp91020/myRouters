@@ -81,12 +81,8 @@ cat tools/libressl/Makefile
 #cat tools/libressl/Makefile
 
 
-#package/utils/util-linux 过不去了
-wget https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/util-linux-2.37.2.tar.gz
-tar zxvf util-linux-2.37.2.tar.gz
-rm -rf package/utils/util-linux
-mv util-linux-2.37.2 util-linux
-/bin/cp -rf util-linux package/utils/
+#package/utils/util-linux 过不去了, 在yml 中改吧
+
 
 if [[ "$MOD"  == "mt7621" ]]; then
   #sed -i "s/kmod-mt7603/kmod-mt7603e/" target/linux/ramips/image/mt7621.mk
