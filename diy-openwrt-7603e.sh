@@ -19,7 +19,7 @@ wget https://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.gz &&  tar zxvf autoconf
 #automake 又出问题了 WARNING: 'automake-1.16' is missing on your system.
 #rm -rf tools/automake
 sudo apt-get remove automake
-wget https://ftp.gnu.org/gnu/automake/automake-1.16.5.tar.gz && tar zxvf automake-1.16.5tar.gz && cd automake-1.16.5 && ./configure && make && sudo make install && cd ..
+wget https://ftp.gnu.org/gnu/automake/automake-1.16.5.tar.gz && tar zxvf automake-1.16.5.tar.gz && cd automake-1.16.5 && ./configure && make && sudo make install && cd ..
 
 cd package/utils/util-linux/
 autoscan
