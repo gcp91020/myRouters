@@ -14,9 +14,12 @@ sed -i "s/grep '=\[ym\]' \$(LINUX_DIR)\/.config.set | LC_ALL=C sort | \$(MKHASH)
 sed -i 's/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell \$(SCRIPT_DIR)\/kconfig.pl \$(LINUX_DIR)\/.config | mkhash md5)/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell cat \$(LINUX_DIR)\/.vermagic)/' package/kernel/linux/Makefile
 
 sudo apt-get remove autoconf
-wget https://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.gz &&  tar zxvf autoconf-2.71.tar.gz &&  cd autoconf-2.71 && ./configure && make && sudo make install && cd ..
+wget https://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.gz &&  tar zxvf autoconf-2.71.tar.gz && cd autoconf-2.71 && ./configure && make && sudo make install && cd ..
 
-
+#automake 又出问题了 WARNING: 'automake-1.16' is missing on your system.
+#rm -rf tools/automake
+sudo apt-get remove automake
+wget https://ftp.gnu.org/gnu/automake/automake-1.16.5.tar.gz && tar zxvf automake-1.16.5tar.gz && cd automake-1.16.5 && ./configure && make && sudo make install && cd ..
 
 #sed -i 's#grep \'=[ym]\' \$(LINUX_DIR)/.config.set | LC_ALL=C sort | mkhash md5 > $(LINUX_DIR)/.vermagic#cp \$(TOPDIR)/vermagic \$(LINUX_DIR)/.vermagic#g' include/kernel-defaults.mk 
 #sed -i 's#STAMP_BUILT:=$(STAMP_BUILT)_$(shell $(SCRIPT_DIR)/kconfig.pl $(LINUX_DIR)/.config | mkhash md5)#STAMP_BUILT:=$(STAMP_BUILT)_$(shell cat $(LINUX_DIR)/.vermagic)#g' package/kernel/linux/Makefile
@@ -77,18 +80,13 @@ cat tools/libressl/Makefile
 #sed -i 's/disable-tests/disable-tests /' tools/libressl/configure.ac
 #cat tools/libressl/Makefile
 
-#automake 又出问题了 WARNING: 'automake-1.16' is missing on your system.
-#rm -rf tools/automake
-wget https://ftp.gnu.org/gnu/automake/automake-1.16.5.tar.gz
-tar zxvf automake-1.16.5tar.gz
-cd automake-1.16.5 && ./configure && make && sudo make install && cd ..
 
 #package/utils/util-linux 过不去了
 wget https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/util-linux-2.37.2.tar.gz
 tar zxvf util-linux-2.37.2.tar.gz
 rm -rf package/utils/util-linux
-/bin/cp -rf util-linux-2.37.2 package/utils/
-
+mv util-linux-2.37.2 util-linux
+/bin/cp -rf util-linux package/utils/
 
 if [[ "$MOD"  == "mt7621" ]]; then
   #sed -i "s/kmod-mt7603/kmod-mt7603e/" target/linux/ramips/image/mt7621.mk
