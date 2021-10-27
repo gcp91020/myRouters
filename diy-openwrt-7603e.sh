@@ -21,6 +21,12 @@ wget https://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.gz &&  tar zxvf autoconf
 sudo apt-get remove automake
 wget https://ftp.gnu.org/gnu/automake/automake-1.16.5.tar.gz && tar zxvf automake-1.16.5tar.gz && cd automake-1.16.5 && ./configure && make && sudo make install && cd ..
 
+cd package/utils/util-linux/
+autoscan
+aclocal
+autoconf
+automake --add-msssing
+
 #sed -i 's#grep \'=[ym]\' \$(LINUX_DIR)/.config.set | LC_ALL=C sort | mkhash md5 > $(LINUX_DIR)/.vermagic#cp \$(TOPDIR)/vermagic \$(LINUX_DIR)/.vermagic#g' include/kernel-defaults.mk 
 #sed -i 's#STAMP_BUILT:=$(STAMP_BUILT)_$(shell $(SCRIPT_DIR)/kconfig.pl $(LINUX_DIR)/.config | mkhash md5)#STAMP_BUILT:=$(STAMP_BUILT)_$(shell cat $(LINUX_DIR)/.vermagic)#g' package/kernel/linux/Makefile
 
