@@ -91,6 +91,8 @@ cat tools/libressl/Makefile
 
 #package/utils/util-linux 过不去了, 在yml 中改吧
 
+# binutils  aclocal.real: error: configure.ac:27: file 'libtool.m4' does not exist
+sed -i "s/PKG_REMOVE_FILES/#PKG_REMOVE_FILES/" package/devel/binutils/Makefile
 
 if [[ "$MOD"  == "mt7621" ]]; then
   #sed -i "s/kmod-mt7603/kmod-mt7603e/" target/linux/ramips/image/mt7621.mk
