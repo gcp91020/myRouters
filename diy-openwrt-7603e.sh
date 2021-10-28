@@ -70,9 +70,13 @@ sed -i "s/bcce767a3fed252bfd1210f8a7e3505a2b54d3008f66e43d9b95e3f30c072931/107ce
 cat tools/libressl/Makefile
 
 # binutils  aclocal.real: error: configure.ac:27: file 'libtool.m4' does not exist
-sed -i "s/PKG_REMOVE_FILES/#PKG_REMOVE_FILES/" package/devel/binutils/Makefile
+# sed -i "s/PKG_REMOVE_FILES/#PKG_REMOVE_FILES/" package/devel/binutils/Makefile
+# 升级到 2.37
+
 # binutils-2.35.2
 # configure.ac:34: error: Please use exactly Autoconf 2.69 instead of 2.71
+sed -i "s/PKG_VERSION:=2.35.2/PKG_VERSION:=2.37/" package/devel/binutils/Makefile
+sed -i "s/PKG_HASH:=.*/PKG_HASH:=820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c/" package/devel/binutils/Makefile
 
 
 if [[ "$MOD"  == "mt7621" ]]; then
