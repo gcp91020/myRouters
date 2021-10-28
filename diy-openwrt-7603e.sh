@@ -71,6 +71,9 @@ cat tools/libressl/Makefile
 
 # binutils  aclocal.real: error: configure.ac:27: file 'libtool.m4' does not exist
 sed -i "s/PKG_REMOVE_FILES/#PKG_REMOVE_FILES/" package/devel/binutils/Makefile
+# binutils-2.35.2
+# configure.ac:34: error: Please use exactly Autoconf 2.69 instead of 2.71
+
 
 if [[ "$MOD"  == "mt7621" ]]; then
   #sed -i "s/kmod-mt7603/kmod-mt7603e/" target/linux/ramips/image/mt7621.mk
