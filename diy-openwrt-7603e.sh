@@ -15,6 +15,7 @@ sed -i 's/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell \$(SCRIPT_DIR)\/kconfig.pl \$(LI
 
 sudo apt-get remove autoconf
 wget https://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.gz &&  tar zxvf autoconf-2.71.tar.gz && cd autoconf-2.71 && ./configure && make && sudo make install && cd ..
+sudo apt-get install gtk-doc-tools
 
 #automake 又出问题了 WARNING: 'automake-1.16' is missing on your system.
 #rm -rf tools/automake
