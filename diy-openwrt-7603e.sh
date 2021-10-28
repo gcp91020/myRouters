@@ -57,10 +57,6 @@ sed -i '/\tmac_addr = of_get_mac_address/i \/\*' target/linux/ramips/files/drive
 sed -i '/.*ether_addr_copy(dev->dev_addr, mac_addr);/a \*\/' target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c
 grep mac_addr target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c
 
-#rm -rf tar devel/autoconf
-#/bin/cp -rf lede/tools/autoconf dev/
-#ls -l dev/
-
 rm -rf lede
 #改动autoconf 有没有必要啊? 不管了，反正更新下没有增加新的错误。
 sed -i "s/PKG_VERSION:=2.69/PKG_VERSION:=2.71/" tools/autoconf/Makefile
@@ -71,25 +67,10 @@ cat tools/autoconf/Makefile
 sed -i "s/HOST_FIXUP/#HOST_FIXUP/" tools/dosfstools/Makefile
 cat tools/dosfstools/Makefile
 
-#rm -rf tools/libressl        
-#wget https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.4.1.tar.gz 
-#cd tools && tar zxvf ../libressl-3.4.1.tar.gz 
-#mv libressl-3.4.1 libressl
-#cd libressl
-
 sed -i '/HOST_BUILD_PARALLEL:=1/a PKG_BUILD_DEPENDS:=gettext libiconv' tools/libressl/Makefile
 sed -i "s/PKG_VERSION:=3.3.4/PKG_VERSION:=3.4.1/" tools/libressl/Makefile
 sed -i "s/bcce767a3fed252bfd1210f8a7e3505a2b54d3008f66e43d9b95e3f30c072931/107ceae6ca800e81cb563584c16afa36d6c7138fade94a2b3e9da65456f7c61c/" tools/libressl/Makefile
 cat tools/libressl/Makefile
-
-#./configure && make && sudo make install 
-#cd ../..
-#sed -i "s/--disable-tests/--disable-tests --enable-m4_pattern_allow/" tools/libressl/Makefile
-#sed -i 's/disable-tests/disable-tests /' tools/libressl/configure.ac
-#cat tools/libressl/Makefile
-
-
-#package/utils/util-linux 过不去了, 在yml 中改吧
 
 # binutils  aclocal.real: error: configure.ac:27: file 'libtool.m4' does not exist
 sed -i "s/PKG_REMOVE_FILES/#PKG_REMOVE_FILES/" package/devel/binutils/Makefile
