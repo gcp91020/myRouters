@@ -89,4 +89,7 @@ if [[ "$MOD"  == "mt7620" ]]; then
   echo "ip route add 192.168.120.0/24 via 192.168.125.254" >> package/network/config/firewall/files/firewall.hotplug
 fi
 
+# 把多的一个 bintuils 删了
+rm -rf package/devel/binutils
+
 
