@@ -16,10 +16,13 @@ sed -i 's/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell \$(SCRIPT_DIR)\/kconfig.pl \$(LI
 # modify openwrt/blob/master/include/target.mk, conflict with dnsmasq-full
 sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
 
-#sudo apt-get remove autoconf
-#wget https://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.gz &&  tar zxvf autoconf-2.71.tar.gz && cd autoconf-2.71 && ./configure && make && sudo make install && cd ..
 
 sudo apt-get install gtk-doc-tools
+
+# fakeroot-1.26 configure.ac:3: error: Autoconf version 2.71 or higher is required
+sudo apt-get remove autoconf
+wget https://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.gz &&  tar zxvf autoconf-2.71.tar.gz && cd autoconf-2.71 && ./configure && make && sudo make install && cd ..
+
 
 #automake 又出问题了 WARNING: 'automake-1.16' is missing on your system.
 #rm -rf tools/automake
