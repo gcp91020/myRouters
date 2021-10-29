@@ -48,13 +48,18 @@ ls -l target/linux/ramips/files/drivers/net/ethernet
 /bin/cp -f lede/target/linux/ramips/mt7621/base-files/lib/preinit/07_mt7621_bringup_dsa_master target/linux/ramips/mt7621/base-files/lib/preinit/07_mt7621_bringup_dsa_master
 /bin/cp -f lede/target/linux/ramips/patches-5.10/999-fix-hwnat.patch target/linux/ramips/patches-5.10/999-fix-hwnat.patch
 
+#/bin/cp -f lede/target/linux/ramips/dts/mt7621_jcg_jhr-ac945m.dts target/linux/ramips/target/linux/ramips/dts/mt7621_jcg_jhr-ac945m.dts
+#/bin/cp -f lede/target/linux/ramips/mt7621/base-files/etc/board.d/02_network target/linux/ramips/mt7621/base-files/etc/board.d/02_network
+sed -i "s/jcg,jhr-ac945m.*//" target/linux/ramips/mt7621/base-files/etc/board.d/02_network
+
+rm -rf lede
+
 #怎么 of_get_mac_address 不一致了呢?
 sed -i '/\tmac_addr = of_get_mac_address/i \\tof_get_mac_address(priv->dev->of_node, dev->dev_addr);' target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c
 sed -i '/\tmac_addr = of_get_mac_address/i \/\*' target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c
 sed -i '/.*ether_addr_copy(dev->dev_addr, mac_addr);/a \*\/' target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c
 grep mac_addr target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c
 
-rm -rf lede
 #改动autoconf 有没有必要啊? 不管了，反正更新下没有增加新的错误。
 sed -i "s/PKG_VERSION:=2.69/PKG_VERSION:=2.71/" tools/autoconf/Makefile
 sed -i "s/64ebcec9f8ac5b2487125a86a7760d2591ac9e1d3dbd59489633f9de62a57684/f14c83cfebcc9427f2c3cea7258bd90df972d92eb26752da4ddad81c87a0faa4/" tools/autoconf/Makefile
