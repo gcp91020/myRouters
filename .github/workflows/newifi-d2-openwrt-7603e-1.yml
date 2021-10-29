@@ -23,7 +23,7 @@ env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.openwrt
-  CONFIG_FILE: config.d2.7603e
+  CONFIG_FILE: config.d2.7603e.1
   DIY_SH: diy-openwrt-7603e-1.sh
   #DIY1_SH: diy1.sh
   SSH_ACTIONS: false
