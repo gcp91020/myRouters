@@ -51,6 +51,9 @@ rm -rf target/linux/ramips/files/drivers/net/ethernet/ralink
 ls -l target/linux/ramips/files/drivers/net/ethernet
 /bin/cp -f lede/target/linux/ramips/mt7621/base-files/lib/preinit/07_mt7621_bringup_dsa_master target/linux/ramips/mt7621/base-files/lib/preinit/07_mt7621_bringup_dsa_master
 /bin/cp -f lede/target/linux/ramips/patches-5.10/999-fix-hwnat.patch target/linux/ramips/patches-5.10/999-fix-hwnat.patch
+
+sed -i "s/jcg,jhr-ac945m.*//" target/linux/ramips/mt7621/base-files/etc/board.d/02_network
+
 rm -rf lede
 
 #怎么 of_get_mac_address 不一致了呢?
