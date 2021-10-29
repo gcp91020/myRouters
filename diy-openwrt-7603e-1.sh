@@ -52,9 +52,23 @@ ls -l target/linux/ramips/files/drivers/net/ethernet
 /bin/cp -f lede/target/linux/ramips/mt7621/base-files/lib/preinit/07_mt7621_bringup_dsa_master target/linux/ramips/mt7621/base-files/lib/preinit/07_mt7621_bringup_dsa_master
 /bin/cp -f lede/target/linux/ramips/patches-5.10/999-fix-hwnat.patch target/linux/ramips/patches-5.10/999-fix-hwnat.patch
 
-sed -i "s/jcg,jhr-ac945m.*//" target/linux/ramips/mt7621/base-files/etc/board.d/02_network
-sed -i -e "/.*jcg_jhr-ac945m/,+12d" target/linux/ramips/image/mt7621.mk 
+#/bin/cp -f lede/target/linux/ramips/dts/mt7621_jcg_jhr-ac945m.dts target/linux/ramips/target/linux/ramips/dts/mt7621_jcg_jhr-ac945m.dts
+#/bin/cp -f lede/target/linux/ramips/mt7621/base-files/etc/board.d/02_network target/linux/ramips/mt7621/base-files/etc/board.d/02_network
+sed -i -e "s/jcg,jhr-ac945m.*//" target/linux/ramips/mt7621/base-files/etc/board.d/02_network
+cat target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 
+sed -i -e "/.*jcg_jhr-ac945m/,+12d" target/linux/ramips/image/mt7621.mk 
+sed -i -e "/.*iodata_wn-dx2033gr/,+8d" target/linux/ramips/image/mt7621.mk 
+sed -i -e "/.*netgear_r6900-v2/,+12d" target/linux/ramips/image/mt7621.mk 
+sed -i -e "/.*netgear_r7200/,+11d" target/linux/ramips/image/mt7621.mk 
+sed -i -e "/.*netgear_r7450/,+11d" target/linux/ramips/image/mt7621.mk 
+sed -i -e "/.*ubnt_usw-flex/,+9d" target/linux/ramips/image/mt7621.mk 
+sed -i -e "/.*netgear_r7450/,+11d" target/linux/ramips/image/mt7621.mk 
+sed -i -e "/.*xiaomi_mi-router-cr660x/,+18d" target/linux/ramips/image/mt7621.mk 
+sed -i -e "/.*zte_e8820s/,+18d" target/linux/ramips/image/mt7621.mk 
+sed -i -e "/.*raisecom_msg1500/,+16d" target/linux/ramips/image/mt7621.mk 
+
+cat target/linux/ramips/image/mt7621.mk 
 rm -rf lede
 
 #怎么 of_get_mac_address 不一致了呢?
