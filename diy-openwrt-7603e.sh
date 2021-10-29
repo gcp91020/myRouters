@@ -70,7 +70,7 @@ sed -i "s/bcce767a3fed252bfd1210f8a7e3505a2b54d3008f66e43d9b95e3f30c072931/107ce
 cat tools/libressl/Makefile
 
 # binutils  aclocal.real: error: configure.ac:27: file 'libtool.m4' does not exist
-# sed -i "s/PKG_REMOVE_FILES/#PKG_REMOVE_FILES/" package/devel/binutils/Makefile
+sed -i "s/PKG_REMOVE_FILES/#PKG_REMOVE_FILES/" package/devel/binutils/Makefile
 # 升级到 2.37
 
 # binutils-2.35.2
