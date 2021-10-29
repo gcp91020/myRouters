@@ -24,7 +24,7 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.openwrt
   CONFIG_FILE: config.d2.7603e
-  DIY_SH: diy-openwrt-7603e.sh
+  DIY_SH: diy-openwrt-7603e-1.sh
   #DIY1_SH: diy1.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
