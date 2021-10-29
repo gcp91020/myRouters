@@ -92,6 +92,7 @@ if [[ "$MOD"  == "mt7620" ]]; then
   echo "ip route add 192.168.120.0/24 via 192.168.125.254" >> package/network/config/firewall/files/firewall.hotplug
 fi
 
+#binutils-2.35.2 aclocal.real: error: configure.ac:27: file 'libtool.m4' does not exist
 # 把多的一个 bintuils 删了
 rm -rf package/devel/binutils
 
