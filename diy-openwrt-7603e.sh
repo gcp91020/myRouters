@@ -75,8 +75,10 @@ sed -i "s/PKG_REMOVE_FILES/#PKG_REMOVE_FILES/" package/devel/binutils/Makefile
 
 # binutils-2.35.2
 # configure.ac:34: error: Please use exactly Autoconf 2.69 instead of 2.71
-sed -i "s/PKG_VERSION:=2.35.2/PKG_VERSION:=2.37/" package/devel/binutils/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c/" package/devel/binutils/Makefile
+rm -rf package/devel/binutils
+sed -i "s/PKG_VERSION:.*/PKG_VERSION:=2.37/" toolchain/binutils/Makefile
+#sed -i "s/PKG_VERSION:=2.35.2/PKG_VERSION:=2.37/" package/devel/binutils/Makefile
+#sed -i "s/PKG_HASH:=.*/PKG_HASH:=820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c/" package/devel/binutils/Makefile
 
 
 if [[ "$MOD"  == "mt7621" ]]; then
