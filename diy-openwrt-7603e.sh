@@ -24,9 +24,9 @@ wget https://ftp.gnu.org/gnu/automake/automake-1.16.5.tar.gz && tar zxvf automak
 
 cd package/utils/util-linux/
 autoscan
-aclocal
-autoconf
-automake --add-msssing
+#aclocal
+#autoconf
+automake
 cd ../../../
 
 # modify openwrt/blob/master/include/target.mk, conflict with dnsmasq-full
