@@ -51,6 +51,7 @@ ls -l target/linux/ramips/files/drivers/net/ethernet
 #/bin/cp -f lede/target/linux/ramips/dts/mt7621_jcg_jhr-ac945m.dts target/linux/ramips/target/linux/ramips/dts/mt7621_jcg_jhr-ac945m.dts
 #/bin/cp -f lede/target/linux/ramips/mt7621/base-files/etc/board.d/02_network target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 sed -i "s/jcg,jhr-ac945m.*//" target/linux/ramips/mt7621/base-files/etc/board.d/02_network
+sed -i -e "/.*jcg_jhr-ac945m/,+12d" target/linux/ramips/image/mt7621.mk 
 
 rm -rf lede
 
