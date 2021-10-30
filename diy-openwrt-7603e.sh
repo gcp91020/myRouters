@@ -26,7 +26,7 @@ cd package/utils/util-linux/
 autoscan
 #aclocal
 #autoconf
-automake
+#automake
 cd ../../../
 
 # modify openwrt/blob/master/include/target.mk, conflict with dnsmasq-full
