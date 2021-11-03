@@ -117,5 +117,3 @@ fi
 #binutils-2.35.2 aclocal.real: error: configure.ac:27: file 'libtool.m4' does not exist
 # 把多的一个 bintuils 删了
 rm -rf package/devel/binutils
-
-
