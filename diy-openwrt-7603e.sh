@@ -71,7 +71,7 @@ ls -l target/linux/ramips/files/drivers/net/ethernet
 sed -i -e "s/jcg,jhr-ac945m.*//" target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 cat target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 
-/bin/cp -f openwrt-7603-7621.mk target/linux/ramips/image/mt7621.mk 
+/bin/cp -f ../openwrt-7603-7621.mk target/linux/ramips/image/mt7621.mk 
 
 #/bin/cp -rf lede/target/linux/ramips/image/mt7621.mk target/linux/ramips/image/mt7621.mk 
 #ls -l target/linux/ramips/image/mt7621.mk 
