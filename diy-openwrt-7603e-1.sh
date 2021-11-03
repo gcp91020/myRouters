@@ -69,6 +69,10 @@ sed -i -e "/.*zte_e8820s/,+18d" target/linux/ramips/image/mt7621.mk
 sed -i -e "/.*raisecom_msg1500/,+16d" target/linux/ramips/image/mt7621.mk 
 
 cat target/linux/ramips/image/mt7621.mk 
+
+/bin/cp -f lede/target/linux/ramips/dts/mt7621_d-team_newifi-d2.dts target/linux/ramips/dts/mt7621_d-team_newifi-d2.dts
+/bin/cp -rf lede/target/linux/ramips/files/drivers/net/ethernet/ralink/* target/linux/ramips/files/drivers/net/ethernet/ralink/
+
 rm -rf lede
 
 #怎么 of_get_mac_address 不一致了呢?
