@@ -38,10 +38,9 @@ git config --global http.sslverify false && git clone https://github.com/coolsno
 /bin/cp -rf lede/package/lean/mtk-eip93 package/
 rm -rf target/linux/ramips/mt7621
 /bin/cp -rf lede/target/linux/ramips/mt7621 target/linux/ramips/
-/bin/cp -rf lede/target/linux/ramips/image/mt7621.mk target/linux/ramips/image/mt7621.mk 
+
 ls -l package/mt
 ls -l target/linux/ramips/mt7621
-ls -l target/linux/ramips/image/mt7621.mk 
 rm -rf target/linux/ramips/files/drivers/net/ethernet/ralink
 /bin/cp -rf lede/target/linux/ramips/files/drivers/net/ethernet/ralink target/linux/ramips/files/drivers/net/ethernet
 ls -l target/linux/ramips/files/drivers/net/ethernet
@@ -53,16 +52,21 @@ ls -l target/linux/ramips/files/drivers/net/ethernet
 sed -i -e "s/jcg,jhr-ac945m.*//" target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 cat target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 
-sed -i -e "/.*jcg_jhr-ac945m/,+12d" target/linux/ramips/image/mt7621.mk 
-sed -i -e "/.*iodata_wn-dx2033gr/,+8d" target/linux/ramips/image/mt7621.mk 
-sed -i -e "/.*netgear_r6900-v2/,+12d" target/linux/ramips/image/mt7621.mk 
-sed -i -e "/.*netgear_r7200/,+11d" target/linux/ramips/image/mt7621.mk 
-sed -i -e "/.*netgear_r7450/,+11d" target/linux/ramips/image/mt7621.mk 
-sed -i -e "/.*ubnt_usw-flex/,+9d" target/linux/ramips/image/mt7621.mk 
-sed -i -e "/.*netgear_r7450/,+11d" target/linux/ramips/image/mt7621.mk 
-sed -i -e "/.*xiaomi_mi-router-cr660x/,+18d" target/linux/ramips/image/mt7621.mk 
-sed -i -e "/.*zte_e8820s/,+18d" target/linux/ramips/image/mt7621.mk 
-sed -i -e "/.*raisecom_msg1500/,+16d" target/linux/ramips/image/mt7621.mk 
+/bin/cp -f openwrt-7603-7621.mk target/linux/ramips/image/mt7621.mk 
+
+#/bin/cp -rf lede/target/linux/ramips/image/mt7621.mk target/linux/ramips/image/mt7621.mk 
+#ls -l target/linux/ramips/image/mt7621.mk 
+
+#sed -i -e "/.*jcg_jhr-ac945m/,+12d" target/linux/ramips/image/mt7621.mk 
+#sed -i -e "/.*iodata_wn-dx2033gr/,+8d" target/linux/ramips/image/mt7621.mk 
+#sed -i -e "/.*netgear_r6900-v2/,+12d" target/linux/ramips/image/mt7621.mk 
+#sed -i -e "/.*netgear_r7200/,+11d" target/linux/ramips/image/mt7621.mk 
+#sed -i -e "/.*netgear_r7450/,+11d" target/linux/ramips/image/mt7621.mk 
+#sed -i -e "/.*ubnt_usw-flex/,+9d" target/linux/ramips/image/mt7621.mk 
+#sed -i -e "/.*netgear_r7450/,+11d" target/linux/ramips/image/mt7621.mk 
+#sed -i -e "/.*xiaomi_mi-router-cr660x/,+18d" target/linux/ramips/image/mt7621.mk 
+#sed -i -e "/.*zte_e8820s/,+18d" target/linux/ramips/image/mt7621.mk 
+#sed -i -e "/.*raisecom_msg1500/,+16d" target/linux/ramips/image/mt7621.mk 
 
 cat target/linux/ramips/image/mt7621.mk 
 /bin/cp -f lede/target/linux/ramips/dts/mt7621_d-team_newifi-d2.dts target/linux/ramips/dts/mt7621_d-team_newifi-d2.dts
