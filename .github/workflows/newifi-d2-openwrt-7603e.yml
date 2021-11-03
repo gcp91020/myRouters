@@ -65,6 +65,7 @@ jobs:
         ls -l openwrt/feeds.conf.default 
         cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a && ./scripts/feeds install -a && cd ..
         [ -e openwrt/logs/feeds/ssrplus/luci-access-control/dump.txt ] && cat openwrt/logs/feeds/ssrplus/luci-access-control/dump.txt
+        [ -e logs/feeds/ssrplus/luci-access-control/dump.txt ] && cat logs/feeds/ssrplus/luci-access-control/dump.txt
     - name: 加载自定义配置
       run: |
         [ -e files ] && mv files openwrt/files
