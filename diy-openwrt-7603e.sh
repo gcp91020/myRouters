@@ -71,7 +71,7 @@ ls -l target/linux/ramips/files/drivers/net/ethernet
 sed -i -e "s/jcg,jhr-ac945m.*//" target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 cat target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 
-/bin/cp -f ../openwrt-7603-7621.mk target/linux/ramips/image/mt7621.mk 
+#/bin/cp -f ../openwrt-7603-7621.mk target/linux/ramips/image/mt7621.mk 
 
 #/bin/cp -rf lede/target/linux/ramips/image/mt7621.mk target/linux/ramips/image/mt7621.mk 
 #ls -l target/linux/ramips/image/mt7621.mk 
@@ -86,6 +86,9 @@ cat target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 #sed -i -e "/.*xiaomi_mi-router-cr660x/,+18d" target/linux/ramips/image/mt7621.mk 
 #sed -i -e "/.*zte_e8820s/,+18d" target/linux/ramips/image/mt7621.mk 
 #sed -i -e "/.*raisecom_msg1500/,+16d" target/linux/ramips/image/mt7621.mk 
+
+sed -i '/DEVICE_MODEL := D2/,/endef/{//!d}' target/linux/ramips/image/mt7621.mk
+sed -i 's/DEVICE_MODEL := D2/DEVICE_MODEL := D2\n  DEVICE_PACKAGES := kmod-mt7603e kmod-mt76x2e kmod-usb3 kmod-usb-ledtrig-usbport luci-app-mtwifi -wpad-openssl/' target/linux/ramips/image/mt7621.mk
 
 cat target/linux/ramips/image/mt7621.mk 
 /bin/cp -f lede/target/linux/ramips/dts/mt7621_d-team_newifi-d2.dts target/linux/ramips/dts/mt7621_d-team_newifi-d2.dts
