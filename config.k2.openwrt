@@ -19,9 +19,9 @@ CONFIG_LINUX_5_4=y
 
 CONFIG_PACKAGE_libsodium=y
 CONFIG_PACKAGE_luci-app-ssr-plus=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_libustream-openssl=y
-CONFIG_PACKAGE_simple-obfs=y
+#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
+#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_libustream-openssl=y
+#CONFIG_PACKAGE_simple-obfs=y
 
 #CONFIG_PACKAGE_libreswan=y
 
