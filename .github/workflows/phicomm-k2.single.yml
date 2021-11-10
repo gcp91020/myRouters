@@ -22,7 +22,7 @@ env:
   #REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.openwrt.k2
+  FEEDS_CONF: feeds.conf.k2
   CONFIG_FILE: config.k2.openwrt
   DIY_SH: diy-openwrt-k2.sh
   SSH_ACTIONS: false
