@@ -23,7 +23,7 @@ env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.openwrt.k2
-  CONFIG_FILE: config.openwrt.k2
+  CONFIG_FILE: config.k2.openwrt
   DIY_SH: diy-openwrt-k2.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
