@@ -26,7 +26,7 @@ sed -i 's/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell \$(SCRIPT_DIR)\/kconfig.pl \$(LI
 #cd ../../../
 
 # configure.ac:34: error: Please use exactly Autoconf 2.69 instead of 2.71
-rm -rf package/devel/binutils
+#rm -rf package/devel/binutils
 
 #改动autoconf 有没有必要啊? 不管了，反正更新下没有增加新的错误。
 #sed -i "s/PKG_VERSION:=2.69/PKG_VERSION:=2.71/" tools/autoconf/Makefile
