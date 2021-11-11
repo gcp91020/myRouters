@@ -30,7 +30,7 @@ autoscan
 cd ../../../
 
 # configure.ac:34: error: Please use exactly Autoconf 2.69 instead of 2.71
-rm -rf package/devel/binutils
+#rm -rf package/devel/binutils
 
 # binutils  aclocal.real: error: configure.ac:27: file 'libtool.m4' does not exist
 # sed -i "s/PKG_REMOVE_FILES/#PKG_REMOVE_FILES/" package/devel/binutils/Makefile
