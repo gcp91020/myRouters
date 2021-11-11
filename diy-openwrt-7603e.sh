@@ -71,8 +71,10 @@ ls -l target/linux/ramips/files/drivers/net/ethernet
 sed -i -e "s/jcg,jhr-ac945m.*//" target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 cat target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 
-#/bin/cp -f ../openwrt-7603-7621.mk target/linux/ramips/image/mt7621.mk 
+#我只要7621.mk中7603一部分。其它的新加的编译不过来
+/bin/cp -f ../openwrt-7603-7621.mk target/linux/ramips/image/mt7621.mk 
 
+#原来的方法 把lean的mt7621 复制过来，但是一更新就麻烦。
 #/bin/cp -rf lede/target/linux/ramips/image/mt7621.mk target/linux/ramips/image/mt7621.mk 
 #ls -l target/linux/ramips/image/mt7621.mk 
 
