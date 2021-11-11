@@ -20,6 +20,8 @@ on:
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
+  HELLOWORLD: https://github.com/fw876/helloworld.git
+  MYPACKAGES: https://github.com/gcp91020/mypackages
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.k2
   CONFIG_FILE: config.k2.openwrt
@@ -53,7 +55,16 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
     - name: 克隆源代码
-      run: git config --global http.sslverify false && git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+      run: |
+        git config --global http.sslverify false && git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+        cd openwrt
+        [ -e package/helloworld ] && rm -rf package/helloworld
+        git clone --depth=1 $HELLOWORLD package/helloworld
+        git clone --depth=1 $MYPACKAGES package/helloworld/mypackages
+        [ -e package/helloworld/mypackages/README.md ] && rm package/helloworld/mypackages/README.md
+        [ -e package/helloworld/mypackages/rules.mk ] &&  rm package/helloworld/mypackages/rules.mk
+        mv package/helloworld/mypackages/*  package/helloworld/
+        rm -rf package/helloworld/mypackages/
 
     - name: 更新安装提要
       run: |
