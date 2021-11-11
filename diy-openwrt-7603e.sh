@@ -66,6 +66,9 @@ ls -l target/linux/ramips/files/drivers/net/ethernet
 /bin/cp -f lede/target/linux/ramips/mt7621/base-files/lib/preinit/07_mt7621_bringup_dsa_master target/linux/ramips/mt7621/base-files/lib/preinit/07_mt7621_bringup_dsa_master
 /bin/cp -f lede/target/linux/ramips/patches-5.10/999-fix-hwnat.patch target/linux/ramips/patches-5.10/999-fix-hwnat.patch
 
+/bin/cp -f lede/target/linux/ramips/dts/mt7621.dtsi target/linux/ramips/dts/mt7621.dtsi 
+/bin/cp -f lede/target/linux/ramips/dts/mt7621_d-team_newifi-d2.dts target/linux/ramips/dts/mt7621_d-team_newifi-d2.dts 
+
 #/bin/cp -f lede/target/linux/ramips/dts/mt7621_jcg_jhr-ac945m.dts target/linux/ramips/target/linux/ramips/dts/mt7621_jcg_jhr-ac945m.dts
 #/bin/cp -f lede/target/linux/ramips/mt7621/base-files/etc/board.d/02_network target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 sed -i -e "s/jcg,jhr-ac945m.*//" target/linux/ramips/mt7621/base-files/etc/board.d/02_network
