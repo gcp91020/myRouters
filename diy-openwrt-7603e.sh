@@ -72,30 +72,24 @@ sed -i -e "s/jcg,jhr-ac945m.*//" target/linux/ramips/mt7621/base-files/etc/board
 cat target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 
 #我只要7621.mk中7603一部分。其它的新加的编译不过来
-/bin/cp -f ../openwrt-7603-7621.mk target/linux/ramips/image/mt7621.mk 
+#/bin/cp -f ../openwrt-7603-7621.mk target/linux/ramips/image/mt7621.mk 
 
-#原来的方法 把lean的mt7621 复制过来，但是一更新就麻烦。
-#/bin/cp -rf lede/target/linux/ramips/image/mt7621.mk target/linux/ramips/image/mt7621.mk 
-#ls -l target/linux/ramips/image/mt7621.mk 
-
-#sed -i -e "/.*jcg_jhr-ac945m/,+12d" target/linux/ramips/image/mt7621.mk 
-#sed -i -e "/.*iodata_wn-dx2033gr/,+8d" target/linux/ramips/image/mt7621.mk 
-#sed -i -e "/.*netgear_r6900-v2/,+12d" target/linux/ramips/image/mt7621.mk 
-#sed -i -e "/.*netgear_r7200/,+11d" target/linux/ramips/image/mt7621.mk 
-#sed -i -e "/.*netgear_r7450/,+11d" target/linux/ramips/image/mt7621.mk 
-#sed -i -e "/.*ubnt_usw-flex/,+9d" target/linux/ramips/image/mt7621.mk 
-#sed -i -e "/.*netgear_r7450/,+11d" target/linux/ramips/image/mt7621.mk 
-#sed -i -e "/.*xiaomi_mi-router-cr660x/,+18d" target/linux/ramips/image/mt7621.mk 
-#sed -i -e "/.*zte_e8820s/,+18d" target/linux/ramips/image/mt7621.mk 
-#sed -i -e "/.*raisecom_msg1500/,+16d" target/linux/ramips/image/mt7621.mk 
-
+#还是换个方法吧。把其它的删了
+MKFILE='target/linux/ramips/image/mt7621.mk'
+if ! egrep "define Device.d-team_newifi-d2" $MKFILE ; then
+	echo "d2 not found"
+	exit 1
+fi
+sed -i "s#define Device/d-team_newifi-d2#demyfine Device/d-team_newifi-d2#" $MKFILE
+sed -i '/define Device\//,/TARGET_DEVICES.*/d' $MKFILE
+sed -i "s#demyfine Device/d-team_newifi-d2#define Device/d-team_newifi-d2#" $MKFILE
+#只有这一段留下来了，替换掉。有好多空行，算了吧，要回家吃饭。
 sed -i '/DEVICE_MODEL := D2/,/endef/{//!d}' target/linux/ramips/image/mt7621.mk
 sed -i 's/DEVICE_MODEL := D2/DEVICE_MODEL := D2\n  DEVICE_PACKAGES := kmod-mt7603e kmod-mt76x2e kmod-usb3 kmod-usb-ledtrig-usbport luci-app-mtwifi -wpad-openssl/' target/linux/ramips/image/mt7621.mk
 
 cat target/linux/ramips/image/mt7621.mk 
 /bin/cp -f lede/target/linux/ramips/dts/mt7621_d-team_newifi-d2.dts target/linux/ramips/dts/mt7621_d-team_newifi-d2.dts
 /bin/cp -rf lede/target/linux/ramips/files/drivers/net/ethernet/ralink/* target/linux/ramips/files/drivers/net/ethernet/ralink/
-
 
 rm -rf lede
 
