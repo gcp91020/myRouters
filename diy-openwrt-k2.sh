@@ -36,6 +36,12 @@ rm -rf package/devel/binutils
 
 # modify openwrt/blob/master/include/target.mk, conflict with dnsmasq-full
 sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
+sed -i 's=ip6tables \\=#ip6tables \\=' include/target.mk
+sed -i 's=odhcp6c \\=#odhcp6c \\=' include/target.mk
+sed -i 's=odhcpd-ipv6only \\=#odhcpd-ipv6only \\=' include/target.mk
+sed -i 's=ppp \\=#ppp \\=' include/target.mk
+sed -i 's=ppp-mod-pppoe=#ppp-mod-pppoe=' include/target.mk
+
 
 #sed -i '/DEVICE_MODEL := D2/,/endef/{//!d}' target/linux/ramips/image/mt7621.mk
 #sed -i 's/DEVICE_MODEL := D2/DEVICE_MODEL := D2\n  DEVICE_PACKAGES := kmod-mt7603e kmod-mt76x2e kmod-usb3 kmod-usb-ledtrig-usbport luci-app-mtwifi -wpad-openssl/' target/linux/ramips/image/mt7621.mk
