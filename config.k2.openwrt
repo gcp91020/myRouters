@@ -106,6 +106,10 @@ CONFIG_TARGET_IMAGES_GZIP=y
 # CONFIG_DEFAULT_luci-theme-darkmatter is not set
 # CONFIG_PACKAGE_luci-theme-material is not set
 
+CONFIG_DEFAULT_ca-bundle=y
+CONFIG_DEFAULT_default-settings=y
+CONFIG_DEFAULT_dnsmasq-full=y
+
 CONFIG_PACKAGE_libsodium=y
 CONFIG_PACKAGE_luci-app-ssr-plus=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
