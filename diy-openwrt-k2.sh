@@ -40,7 +40,7 @@ if [[ "$MOD"  == "mt7620" ]]; then
   sed -i '/default y/default n' feeds/helloworld/xray-plugin/Makefile
   sed -i '/default y/default n' feeds/helloworld/v2ray-plugin/Makefile
 
-  echo "ip route add 192.168.120.0/24 via 192.168.125.254" >> package/network/config/firewall/files/firewall.hotplug
+  #echo "ip route add 192.168.120.0/24 via 192.168.125.254" >> package/network/config/firewall/files/firewall.hotplug
 fi
 
 
