@@ -31,16 +31,18 @@ if [[ "$MOD"  == "mt7620" ]]; then
   sed -i '/prompt "Enable IPv6 support in packages"/a \\t\tdefault n' ./config/Config-build.in
   sed -i '/DEVICE_VARIANT:= v22.4 or older/{n;d}' target/linux/ramips/image/mt7621.mk
   sed -i '/DEVICE_VARIANT:= v22.4 or older/a \\tDEVICE_PACKAGES := kmod-mt76x2 -ip6tables -odhcp6c -kmod-ipv6 -kmod-ip6tables -odhcpd-ipv6only -ppp -ppp-mod-pppoe' ./config/Config-build.in  
+  
+  #安装ssr plus，但是不安装 ssr
+  sed -i 's=+shadowsocksr-libev-ssr-check ==' feeds/helloworld/luci-app-ssr-plus/Makefile
+  sed -i '/bool "Include ShadowsocksR Libev Client"/{n;d}' feeds/helloworld/luci-app-ssr-plus/Makefile
+  sed -i '/bool "Include ShadowsocksR Libev Client"/a \\tdefault n' feeds/helloworld/luci-app-ssr-plus/Makefile
+  #sed -i '/INCLUDE_ShadowsocksR_Libev_Client:shadowsocksr-libev-ssr-local/,+3d' feeds/helloworld/luci-app-ssr-plus/Makefile 
+  sed -i '/default y/default n' feeds/helloworld/xray-plugin/Makefile
+  sed -i '/default y/default n' feeds/helloworld/v2ray-plugin/Makefile
+
   echo "ip route add 192.168.120.0/24 via 192.168.125.254" >> package/network/config/firewall/files/firewall.hotplug
 fi
 
-#安装ssr plus，但是不安装 ssr
-sed -i 's=+shadowsocksr-libev-ssr-check ==' feeds/helloworld/luci-app-ssr-plus/Makefile
-sed -i '/bool "Include ShadowsocksR Libev Client"/{n;d}' feeds/helloworld/luci-app-ssr-plus/Makefile
-sed -i '/bool "Include ShadowsocksR Libev Client"/a \\tdefault n' feeds/helloworld/luci-app-ssr-plus/Makefile
-#sed -i '/INCLUDE_ShadowsocksR_Libev_Client:shadowsocksr-libev-ssr-local/,+3d' feeds/helloworld/luci-app-ssr-plus/Makefile 
-sed -i '/default y/default n' feeds/helloworld/xray-plugin/Makefile
-sed -i '/default y/default n' feeds/helloworld/v2ray-plugin/Makefile
 
 
 
