@@ -21,7 +21,7 @@ sed -i 's=odhcpd-ipv6only \\=#odhcpd-ipv6only \\=' include/target.mk
 sed -i 's=ppp \\=#ppp \\=' include/target.mk
 sed -i 's=ppp-mod-pppoe=#ppp-mod-pppoe=' include/target.mk
 sed -i '/prompt "Enable IPv6 support in packages"/{n;d}' ./config/Config-build.in
-sed -i '/prompt "Enable IPv6 support in packages"/a \\t\\tdefault n' ./config/Config-build.in
+sed -i '/prompt "Enable IPv6 support in packages"/a \\t\tdefault n' ./config/Config-build.in
 
 
 if [[ "$MOD"  == "mt7621" ]]; then
