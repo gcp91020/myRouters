@@ -15,14 +15,6 @@ sed -i 's/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell \$(SCRIPT_DIR)\/kconfig.pl \$(LI
 
 # modify openwrt/blob/master/include/target.mk, conflict with dnsmasq-full
 sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
-sed -i 's=ip6tables \\=#ip6tables \\=' include/target.mk
-sed -i 's=odhcp6c \\=#odhcp6c \\=' include/target.mk
-sed -i 's=odhcpd-ipv6only \\=#odhcpd-ipv6only \\=' include/target.mk
-sed -i 's=ppp \\=#ppp \\=' include/target.mk
-sed -i 's=ppp-mod-pppoe=#ppp-mod-pppoe=' include/target.mk
-sed -i '/prompt "Enable IPv6 support in packages"/{n;d}' ./config/Config-build.in
-sed -i '/prompt "Enable IPv6 support in packages"/a \\t\tdefault n' ./config/Config-build.in
-
 
 if [[ "$MOD"  == "mt7621" ]]; then
   #sed -i "s/kmod-mt7603/kmod-mt7603e/" target/linux/ramips/image/mt7621.mk
@@ -30,6 +22,15 @@ if [[ "$MOD"  == "mt7621" ]]; then
   echo "ip route add 192.168.128.0/24 via 192.168.125.253" >> package/network/config/firewall/files/firewall.hotplug
 fi
 if [[ "$MOD"  == "mt7620" ]]; then
+  sed -i 's=ip6tables \\=#ip6tables \\=' include/target.mk
+  sed -i 's=odhcp6c \\=#odhcp6c \\=' include/target.mk
+  sed -i 's=odhcpd-ipv6only \\=#odhcpd-ipv6only \\=' include/target.mk
+  sed -i 's=ppp \\=#ppp \\=' include/target.mk
+  sed -i 's=ppp-mod-pppoe=#ppp-mod-pppoe=' include/target.mk
+  sed -i '/prompt "Enable IPv6 support in packages"/{n;d}' ./config/Config-build.in
+  sed -i '/prompt "Enable IPv6 support in packages"/a \\t\tdefault n' ./config/Config-build.in
+  sed -i '/DEVICE_VARIANT:= v22.4 or older/{n;d}' target/linux/ramips/image/mt7621.mk
+  sed -i '/DEVICE_VARIANT:= v22.4 or older/a \\tDEVICE_PACKAGES := kmod-mt76x2 -ip6tables -odhcp6c -kmod-ipv6 -kmod-ip6tables -odhcpd-ipv6only -ppp -ppp-mod-pppoe' ./config/Config-build.in  
   echo "ip route add 192.168.120.0/24 via 192.168.125.254" >> package/network/config/firewall/files/firewall.hotplug
 fi
 
