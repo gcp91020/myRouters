@@ -64,7 +64,7 @@ jobs:
         cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a && ./scripts/feeds install -a && cd ..
     - name: 加载自定义配置
       run: |
-        [ -e files ] && mv files openwrt/files
+        [ -e files ] && /bin/cp -f files openwrt/files
         [ -e $CONFIG_FILE ] && /bin/cp -f $CONFIG_FILE openwrt/.config
         chmod +x $DIY_SH
         cd openwrt
