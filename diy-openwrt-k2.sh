@@ -30,5 +30,14 @@ if [[ "$MOD"  == "mt7620" ]]; then
   echo "ip route add 192.168.120.0/24 via 192.168.125.254" >> package/network/config/firewall/files/firewall.hotplug
 fi
 
+#安装ssr plus，但是不安装 ssr
 sed -i 's=+shadowsocksr-libev-ssr-check ==' feeds/helloworld/luci-app-ssr-plus/Makefile
+sed -i '/bool "Include ShadowsocksR Libev Client"/{n;d}' feeds/helloworld/luci-app-ssr-plus/Makefile
+sed -i '/bool "Include ShadowsocksR Libev Client"/a \\tdefault n' feeds/helloworld/luci-app-ssr-plus/Makefile
+sed -i '/INCLUDE_ShadowsocksR_Libev_Client:shadowsocksr-libev-ssr-local/,+3d' feeds/helloworld/luci-app-ssr-plus/Makefile 
 sed -i 's%CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client=y%#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client=y%' .config
+sed -i 's%CONFIG_PACKAGE_shadowsocksr-libev-ssr-check=y%#CONFIG_PACKAGE_shadowsocksr-libev-ssr-check=y%' .config
+sed -i 's%CONFIG_PACKAGE_shadowsocksr-libev-ssr-local=y%#CONFIG_PACKAGE_shadowsocksr-libev-ssr-local=y%' .config
+sed -i 's%CONFIG_PACKAGE_shadowsocksr-libev-ssr-redir=y%#CONFIG_PACKAGE_shadowsocksr-libev-ssr-redir=y%' .config
+
+
