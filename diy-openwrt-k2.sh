@@ -36,8 +36,8 @@ fi
 
 #安装ssr plus，但是不安装 ssr
 sed -i 's=+shadowsocksr-libev-ssr-check ==' feeds/helloworld/luci-app-ssr-plus/Makefile
-#sed -i '/bool "Include ShadowsocksR Libev Client"/{n;d}' feeds/helloworld/luci-app-ssr-plus/Makefile
-#sed -i '/bool "Include ShadowsocksR Libev Client"/a \\tdefault n' feeds/helloworld/luci-app-ssr-plus/Makefile
+sed -i '/bool "Include ShadowsocksR Libev Client"/{n;d}' feeds/helloworld/luci-app-ssr-plus/Makefile
+sed -i '/bool "Include ShadowsocksR Libev Client"/a \\tdefault n' feeds/helloworld/luci-app-ssr-plus/Makefile
 #sed -i '/INCLUDE_ShadowsocksR_Libev_Client:shadowsocksr-libev-ssr-local/,+3d' feeds/helloworld/luci-app-ssr-plus/Makefile 
 
 
