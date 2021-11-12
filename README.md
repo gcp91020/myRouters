@@ -2,6 +2,7 @@
 
 为了个100来块钱的路由器，花的时间算成工资都要上万了，真是疯了。
 最终移植成功了，无聊
+The info below is obseleted 
 ```
 #!/bin/bash
 set -x
