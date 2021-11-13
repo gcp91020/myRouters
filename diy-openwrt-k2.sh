@@ -40,6 +40,7 @@ if [[ "$MOD"  == "mt7620" ]]; then
   sed -i 's/default y/default n/' feeds/helloworld/xray-plugin/Makefile
   sed -i 's/default y/default n/' feeds/helloworld/v2ray-plugin/Makefile
   curl https://ip12306.shcloud.net:8080/ip.txt -s -o feeds/helloworld/luci-app-ssr-plus/root/etc/ssrplus/china_ssr.txt
+  echo " " > feeds/helloworld/luci-app-ssr-plus/root/etc/ssrplus/gfw_list.conf
 
   #echo "ip route add 192.168.120.0/24 via 192.168.125.254" >> package/network/config/firewall/files/firewall.hotplug
 fi
