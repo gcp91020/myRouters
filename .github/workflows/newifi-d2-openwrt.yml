@@ -37,7 +37,7 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.openwrt
   CONFIG_FILE: config.d2.openwrt
-  DIY_SH: diy.sh
+  DIY_SH: diy-openwrt-d2.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
