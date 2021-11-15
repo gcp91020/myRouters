@@ -47,4 +47,5 @@ if [[ "$MOD"  == "mt7621" ]]; then
 fi
 if [[ "$MOD1"  == "hc5861" ]]; then
   echo "ip route add 192.168.120.0/24 via 192.168.128.249" >> package/network/config/firewall/files/firewall.hotplug
+  echo "ip route add 192.168.125.0/24 via 192.168.128.249" >> package/network/config/firewall/files/firewall.hotplug
 fi
