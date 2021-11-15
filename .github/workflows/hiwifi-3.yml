@@ -22,7 +22,7 @@ env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.hiwifi-3
-  CONFIG_FILE: config.hiwifi-3
+  CONFIG_FILE: config.hiwif-3
   DIY_SH: diy-openwrt-hiwifi3.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
