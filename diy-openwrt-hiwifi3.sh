@@ -20,7 +20,7 @@ set -x
 
 # current directory is openwrt
 CONF_FILE=".config"
-MODU=`egrep "^CONFIG_TARGET_ramips_[^_]+_DEVICE_[^_]+=y" $CONF_FILE`
+MODU=`egrep "^CONFIG_TARGET_ramips_[^_]+=y" $CONF_FILE`
 #CONFIG_TARGET_ramips_mt7620_DEVICE_hiwifi_hc5861=y
 MOD=`awk -v FS='[_=\n]' '{print $4}' <<< $MODU`
 MOD1=`awk -v FS='[_=\n]' '{print $7}' <<< $MODU`
