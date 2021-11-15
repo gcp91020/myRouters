@@ -20,8 +20,11 @@ set -x
 
 # current directory is openwrt
 CONF_FILE=".config"
-MOD=`egrep "^CONFIG_TARGET_ramips_[^_]+=y" $CONF_FILE`
-MOD=`awk -v FS='[_=\n]' '{print $4}' <<< $MOD`
+MODU=`egrep "^CONFIG_TARGET_ramips_[^_]+=y" $CONF_FILE`
+#CONFIG_TARGET_ramips_mt7620_DEVICE_hiwifi_hc5861=y
+MOD=`awk -v FS='[_=\n]' '{print $4}' <<< $MODU`
+MOD1=`awk -v FS='[_=\n]' '{print $7}' <<< $MODU`
+
 KMOD="https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/"
 CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | egrep "[0-9a-f]{32}" |sort | tail -n1`
 CURL_N=`awk -v FS='</a>|href=\"|/\">|-' '{print $4}' <<< $CURL_R`
@@ -41,6 +44,6 @@ if [[ "$MOD"  == "mt7621" ]]; then
   grep mt7603 target/linux/ramips/image/mt7621.mk 
   echo "ip route add 192.168.128.0/24 via 192.168.125.253" >> package/network/config/firewall/files/firewall.hotplug
 fi
-if [[ "$MOD"  == "mt7620" ]]; then
+if [[ "$MOD1"  == "hc5861" ]]; then
   echo "ip route add 192.168.120.0/24 via 192.168.128.249" >> package/network/config/firewall/files/firewall.hotplug
 fi
