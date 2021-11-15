@@ -17,27 +17,13 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-#  release:
-#    types: published
-#  push:
-#    branches:
-#      - master
-#    paths:
-#      - '.config'
-#  schedule:
-#    - cron: 0 15 */15 * *
-#          分 时 日 月 周5
-#   - cron: 0 8 */3 * *
-#  watch:
-#    types: started
 
 env:
-  #REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.hiwifi-3
   CONFIG_FILE: config.hiwifi-3
-  DIY_SH: diy.sh
+  DIY_SH: diy-openwrt-hiwifi3.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
