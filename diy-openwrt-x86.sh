@@ -3,10 +3,12 @@ set -x
 #
 # current directory is openwrt
 CONF_FILE=".config"
-MOD=`egrep "^CONFIG_TARGET_ramips_[^_]+=y" $CONF_FILE`
-MOD=`awk -v FS='[_=\n]' '{print $4}' <<< $MOD`
-KMOD="https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/"
-CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | egrep "[0-9a-f]{32}" |sort | tail -n1`
+#MOD=`egrep "^CONFIG_TARGET_ramips_[^_]+=y" $CONF_FILE`
+#MOD=`awk -v FS='[_=\n]' '{print $4}' <<< $MOD`
+#KMOD="https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/"
+#https://downloads.openwrt.org/snapshots/targets/x86/64/kmods/
+#CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | egrep "[0-9a-f]{32}" |sort | tail -n1`
+CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/x86/64/kmods/" | egrep "[0-9a-f]{32}" |sort | tail -n1`
 CURL_N=`awk -v FS='</a>|href=\"|/\">|-' '{print $4}' <<< $CURL_R`
 echo $CURL_N > vermagic
 
