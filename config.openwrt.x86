@@ -618,5 +618,17 @@ CONFIG_PACKAGE_luci-proto-wireguard=y
 CONFIG_DEFAULT_trojan=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
 CONFIG_PACKAGE_luci-app-nlbwmon=y
+CONFIG_DEFAULT_luci=y
+CONFIG_PACKAGE_luci=y
 CONFIG_DEFAULT_luci-base=y
+CONFIG_PACKAGE_luci-base=y
 CONFIG_DEFAULT_luci-compat=y
+CONFIG_PACKAGE_luci-compat=y
+
+CONFIG_PACKAGE_kmod-nf-conntrack=y
+CONFIG_PACKAGE_kmod-nf-conntrack-netlink=y
+CONFIG_PACKAGE_kmod-nf-flow=y
+CONFIG_PACKAGE_kmod-nf-ipt=y
+CONFIG_PACKAGE_kmod-nf-nat=y
+CONFIG_PACKAGE_kmod-nf-reject=y
+CONFIG_PACKAGE_kmod-nfnetlink=y
