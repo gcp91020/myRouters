@@ -36,8 +36,8 @@ env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.openwrt
-  CONFIG_FILE: config.d2.openwrt
-  DIY_SH: diy-openwrt-d2.sh
+  CONFIG_FILE: config.openwrt.x86
+  DIY_SH: diy-openwrt-x86.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
