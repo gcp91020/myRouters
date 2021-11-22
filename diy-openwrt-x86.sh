@@ -8,7 +8,8 @@ CONF_FILE=".config"
 #KMOD="https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/"
 #https://downloads.openwrt.org/snapshots/targets/x86/64/kmods/
 #CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | egrep "[0-9a-f]{32}" |sort | tail -n1`
-CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/x86/64/kmods/" | egrep "[0-9a-f]{32}" |sort | tail -n1`
+# default 5.10 
+CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/x86/64/kmods/" | egrep 5.10 | egrep "[0-9a-f]{32}" |sort | tail -n1`
 CURL_N=`awk -v FS='</a>|href=\"|/\">|-' '{print $4}' <<< $CURL_R`
 echo $CURL_N > vermagic
 
