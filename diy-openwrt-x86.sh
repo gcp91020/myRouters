@@ -18,6 +18,7 @@ else
 fi
 CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/x86/64/kmods/" | egrep $ver | egrep "[0-9a-f]{32}" |sort | tail -n1`
 CURL_N=`awk -v FS='</a>|href=\"|/\">|-' '{print $4}' <<< $CURL_R`
+CURL_N="5550601e097a5b96a1f4c9b1d0c3808d"
 echo $CURL_N > vermagic
 
 sed -i "s/grep '=\[ym\]' \$(LINUX_DIR)\/.config.set | LC_ALL=C sort | \$(MKHASH) md5 > \$(LINUX_DIR)\/.vermagic/cp \$(TOPDIR)\/vermagic \$(LINUX_DIR)\/.vermagic/" include/kernel-defaults.mk 
