@@ -31,13 +31,13 @@ config interface 'wan6'
 
 config interface 'WireGuard'
 	option proto 'wireguard'
-	option private_key 'ZL81/oZf5+AAideHTugY5k9OHLMVYzAzIMPLu2ImaX4='
+	option private_key 'KNupOYT7n+lQSaKMdv8bgN9YhIn8EUK13bPMgUYGNVg='
 	list addresses '192.168.125.229/29'
 	option listen_port '5060'
 
 config wireguard_WireGuard
-	option public_key 'EGpuEHDQWN9tk9pc80ZC1q0odKy4RIZamOCmcz733Gc='
-	option endpoint_host 'theip'
+	option public_key '97ibGlQncLxoGM4600mOhSJXgE4lcFdFwKabQpbvsBE='
+	option endpoint_host 'businessinsight.shcloud.net'
 	option endpoint_port '5060'
 	option description 'Telecom'
 	option route_allowed_ips '1'
@@ -47,6 +47,6 @@ config wireguard_WireGuard
 
 config wireguard_WireGuard
 	option description 'Mac'
-	option public_key 'mOzE2T7oElfZzvLEsDjlCvfVP6km+zEe8eb8NO7531w='
+	option public_key '4vOpCYGIbol+tiB4FbHkKfA/p8UhFuU0Q+Sjv3lAqlo='
 	list allowed_ips '192.168.125.216/29'
 
