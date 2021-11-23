@@ -38,6 +38,7 @@ env:
   FEEDS_CONF: feeds.conf.openwrt
   CONFIG_FILE: config.openwrt.x86
   DIY_SH: diy-openwrt-x86.sh
+  FILES: x86/files
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
