@@ -726,9 +726,7 @@ CONFIG_PACKAGE_jshn=y
 CONFIG_PACKAGE_libjson-script=y
 CONFIG_PACKAGE_nss-utils=y
 CONFIG_STRACE_NONE=y
-#10-15
-# CONFIG_PACKAGE_libreswan=y
-# CONFIG_PACKAGE_strongswan=y
-# CONFIG_PACKAGE_luci-app-ipsec-vpnd=y
 
-
+CONFIG_PACKAGE_kmod-wireguard=y
+CONFIG_PACKAGE_luci-app-wireguard=y
+CONFIG_PACKAGE_luci-proto-wireguard=y
