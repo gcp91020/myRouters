@@ -1,0 +1,60 @@
+
+config dnsmasq
+	option domainneeded '1'
+	option localise_queries '1'
+	option local '/lan/'
+	option domain 'lan'
+	option expandhosts '1'
+	option authoritative '1'
+	option readethers '1'
+	option leasefile '/tmp/dhcp.leases'
+	option resolvfile '/tmp/resolv.conf.d/resolv.conf.auto'
+	option localservice '1'
+	option ednspacket_max '1232'
+	option rebind_protection '1'
+	list rebind_domain 'shcloud.net'
+	list addnhosts '/etc/config/myhosts'
+
+config dhcp 'lan'
+	option interface 'lan'
+	option start '100'
+	option limit '150'
+	option leasetime '10d'
+	list ra_flags 'none'
+
+config dhcp 'wan'
+	option interface 'wan'
+	option ignore '1'
+	option start '100'
+	option limit '150'
+	option leasetime '12h'
+	list ra_flags 'none'
+
+config host
+	option dns '1'
+	option mac '00:1A:92:AD:A2:C2'
+	option name 'Ubuntu-Host'
+	option ip '192.168.128.253'
+	option leasetime '2h'
+
+config host
+	option name 'Ubuntu-VM'
+	option dns '1'
+	option mac '52:54:00:D8:6C:DA'
+	option ip '192.168.128.238'
+	option leasetime '2h'
+
+config host
+	option mac '00:11:32:2C:A7:85'
+	option dns '1'
+	option ip '192.168.128.228'
+	option leasetime '2h'
+	option name 'nas'
+
+config host
+	option name 'win7'
+	option dns '1'
+	option mac '52:54:00:3B:6D:45'
+	option leasetime '2h'
+	option ip '192.168.128.236'
+

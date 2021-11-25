@@ -1,0 +1,79 @@
+
+config interface 'loopback'
+	option device 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'fd92:c7b7:0927::/48'
+
+config device
+	option name 'br-lan'
+	option type 'bridge'
+	list ports 'eth0.1'
+
+config device
+	option name 'eth0.1'
+	option macaddr 'd4:ee:07:42:fc:9e'
+
+config interface 'lan'
+	option device 'br-lan'
+	option proto 'static'
+	option netmask '255.255.255.0'
+	option delegate '0'
+	list dns '202.96.209.5'
+	list dns '202.96.209.133'
+	list dns_search 'mydomain.cn'
+	option ipaddr '192.168.128.254'
+
+config device
+	option name 'eth0.2'
+	option macaddr 'd4:ee:07:42:fc:9f'
+
+config interface 'wan'
+	option device 'eth0.2'
+	option proto 'dhcp'
+	option peerdns '0'
+	list dns '202.96.209.5'
+	list dns '202.96.209.133'
+	option delegate '0'
+	option hostname 'MacAir2016'
+
+config switch
+	option name 'switch0'
+	option reset '1'
+	option enable_vlan '1'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '1'
+	option vid '1'
+	option ports '6t 1 5'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '2'
+	option vid '2'
+	option ports '6t 0'
+
+config interface 'WireGuard'
+	option proto 'wireguard'
+	option private_key 'WireGuard'
+	option defaultroute '0'
+	option delegate '0'
+	option listen_port '5060'
+	list addresses '192.168.125.249/30'
+
+config wireguard_WireGuard
+	option description 'Telecom'
+	option public_key 'Telecom'
+	option endpoint_host 'remoteip'
+	option endpoint_port 'port'
+	option route_allowed_ips '1'
+	option persistent_keepalive '20'
+	list allowed_ips '192.168.125.254/32'
+	list allowed_ips '192.168.125.0/24'
+	list allowed_ips '192.168.120.0/24'
+
+
