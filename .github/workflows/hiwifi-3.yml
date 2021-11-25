@@ -24,6 +24,7 @@ env:
   FEEDS_CONF: feeds.conf.hiwifi-3
   CONFIG_FILE: config.hiwif-3
   DIY_SH: diy-openwrt-hiwifi3.sh
+  FILES: hiwifi3/files
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
@@ -64,7 +65,7 @@ jobs:
 
     - name: 加载自定义配置
       run: |
-        [ -e files ] && mv files openwrt/files
+        [ -e $FILES ] && /bin/cp -r $FILES openwrt/files && ls openwrt/files
         [ -e $CONFIG_FILE ] && /bin/cp -f $CONFIG_FILE openwrt/.config
         chmod +x $DIY_SH
         cd openwrt
