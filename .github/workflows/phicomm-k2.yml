@@ -26,6 +26,7 @@ env:
   FEEDS_CONF: feeds.conf.k2
   CONFIG_FILE: config.k2.openwrt
   DIY_SH: diy-openwrt-k2.sh
+  FILES: k2/files
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
@@ -64,7 +65,7 @@ jobs:
         cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a && ./scripts/feeds install -a && cd ..
     - name: 加载自定义配置
       run: |
-        [ -e files ] && /bin/cp -f files openwrt/files
+        [ -e $FILES ] && /bin/cp -r $FILES openwrt/files && ls openwrt/files
         [ -e $CONFIG_FILE ] && /bin/cp -f $CONFIG_FILE openwrt/.config
         chmod +x $DIY_SH
         cd openwrt
