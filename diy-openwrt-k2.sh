@@ -53,7 +53,7 @@ if [[ "$MOD"  == "mt7620" ]]; then
   sed -i 's=ppp-mod-pppoe=#ppp-mod-pppoe=' include/target.mk
   sed -i '/prompt "Enable IPv6 support in packages"/{n;d}' ./config/Config-build.in
   sed -i '/prompt "Enable IPv6 support in packages"/a \\t\tdefault n' ./config/Config-build.in
-  sed -i '/DEVICE_VARIANT:= v22.4 or older/{n;d}' target/linux/ramips/image/mt7621.mk
+  sed -i '/DEVICE_VARIANT:= v22.4 or older/{n;d}' target/linux/ramips/image/mt7620.mk
   sed -i '/DEVICE_VARIANT:= v22.4 or older/a \\tDEVICE_PACKAGES := kmod-mt76x2 -ip6tables -odhcp6c -kmod-ipv6 -kmod-ip6tables -odhcpd-ipv6only -ppp -ppp-mod-pppoe' ./config/Config-build.in  
   
   #安装ssr plus，但是不安装 ssr
