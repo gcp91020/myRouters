@@ -7,7 +7,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Build OpenWrt Phicomm K2 Single
+name: Build Phicomm K2 Single
 
 on:
   repository_dispatch:
