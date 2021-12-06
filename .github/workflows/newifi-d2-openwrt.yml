@@ -82,6 +82,7 @@ jobs:
         chmod +x $DIY_SH
         cd openwrt
         ../$DIY_SH
+        find files || echo "not found"
         cd ..
     - name: SSH connection to Actions
   #      uses: csexton/debugger-action@master
