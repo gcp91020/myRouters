@@ -21,11 +21,11 @@ config servers
 config servers
 	option type 'trojan'
 	option alias 'gcp12-trojan-443'
-	option server 'bi12.shcloud.net'
+	option server 'bi.example.net'
 	option server_port '443'
 	option password 'replacethepassword'
 	option tls '1'
-	option tls_host 'bi12.shcloud.net'
+	option tls_host 'example'
 	option insecure '1'
 	option local_port '1234'
 	option ip '34.92.201.116'
@@ -52,11 +52,11 @@ config global
 	option pdnsd_enable '1'
 	option tunnel_forward '8.8.4.4:53'
 	option monitor_enable '1'
-	option chnroute_url 'https://ip12312.shcloud.net:8080/ip.txt'
+	option chnroute_url 'https://raw.githubusercontent.com/gcp91020/myRouters/main/common_files/china_ip.txt'
 	option netflix_enable '0'
 	option adblock '0'
 	option enable_switch '0'
-	option gfwlist_url 'https://cdn.jsdelivr.net/gh/YW5vbnltb3Vz/domain-list-community@release/gfwlist.txt'
+	option gfwlist_url 'https://raw.githubusercontent.com/gcp91020/myRouters/main/common_files/dnsmasq.conf'
 	option global_server 'cfg014a8f'
 
 config server_subscribe
