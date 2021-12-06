@@ -1,0 +1,95 @@
+
+config servers
+	option type 'socks5'
+	option server_port '2012'
+	option auth_enable '0'
+	option local_port '1234'
+	option alias 'ubuntu-2012'
+	option switch_enable '1'
+	option server '192.168.125.238'
+	option ip '192.168.125.238'
+
+config servers
+	option type 'socks5'
+	option server_port '2011'
+	option auth_enable '0'
+	option local_port '1234'
+	option alias 'ubuntu-2011'
+	option switch_enable '1'
+	option server '192.168.125.238'
+
+config servers
+	option type 'trojan'
+	option alias 'gcp12-trojan-443'
+	option server 'bi12.shcloud.net'
+	option server_port '443'
+	option password 'replacethepassword'
+	option tls '1'
+	option tls_host 'bi12.shcloud.net'
+	option insecure '1'
+	option local_port '1234'
+	option ip '34.92.201.116'
+	option switch_enable '1'
+
+config servers
+	option type 'socks5'
+	option auth_enable '1'
+	option username 'user'
+	option local_port '1234'
+	option ip '192.168.126.254'
+	option server '192.168.128.254'
+	option alias 'Openwrt-128'
+	option switch_enable '0'
+	option server_port '65432'
+	option password 'replacethepassword'
+
+config global
+	option netflix_server 'nil'
+	option netflix_proxy '0'
+	option threads '0'
+	option run_mode 'router'
+	option dports '2'
+	option pdnsd_enable '1'
+	option tunnel_forward '8.8.4.4:53'
+	option monitor_enable '1'
+	option chnroute_url 'https://ip12312.shcloud.net:8080/ip.txt'
+	option netflix_enable '0'
+	option adblock '0'
+	option enable_switch '0'
+	option gfwlist_url 'https://cdn.jsdelivr.net/gh/YW5vbnltb3Vz/domain-list-community@release/gfwlist.txt'
+	option global_server 'cfg014a8f'
+
+config server_subscribe
+	option proxy '0'
+	option auto_update_time '2'
+	option filter_words '过期时间/剩余流量/QQ群/官网/防失联地址/回国'
+	option auto_update '0'
+	option switch '0'
+
+config access_control
+	option lan_ac_mode '0'
+	option router_proxy '1'
+	list wan_fw_ips '149.154.160.0/20'
+	list wan_fw_ips '67.198.55.0/24'
+	list wan_fw_ips '91.108.4.0/22'
+	list wan_fw_ips '91.108.56.0/22'
+	list wan_fw_ips '109.239.140.0/24'
+	list wan_bp_ips '35.220.171.96'
+	list wan_bp_ips '34.92.89.116'
+	list Interface 'WireGuard'
+	list Interface 'lan'
+
+config socks5_proxy
+	option server 'nil'
+	option local_port '1080'
+
+config server_global
+	option enable_server '0'
+
+config server_config
+	option enable '1'
+	option type 'socks5'
+	option server_port '65432'
+	option username 'user2021'
+	option password 'replacethepassword'
+

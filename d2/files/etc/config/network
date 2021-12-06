@@ -1,0 +1,83 @@
+
+config interface 'loopback'
+	option device 'lo'
+	option proto 'static'
+	option netmask '255.0.0.0'
+	list ipaddr '127.0.0.1'
+
+config globals 'globals'
+	option packet_steering '1'
+	option ula_prefix 'fdc4:4ae9:cf1e::/48'
+
+config device
+	option name 'br-lan'
+	option type 'bridge'
+	list ports 'lan1'
+	list ports 'lan2'
+	list ports 'lan3'
+	list ports 'lan4'
+
+config interface 'lan'
+	option device 'br-lan'
+	option proto 'static'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+	option ipaddr '192.168.120.254'
+
+config interface 'wan'
+	option device 'wan'
+	option proto 'static'
+	option ipaddr '192.168.238.251'
+	option netmask '255.255.255.0'
+	option gateway '192.168.238.254'
+	list dns '202.96.209.5'
+	list dns '202.96.209.133'
+
+config interface 'wan6'
+	option device 'wan'
+	option proto 'dhcpv6'
+
+config interface 'WireGuard'
+	option proto 'wireguard'
+	option private_key 'private_key1'
+	option listen_port '5060'
+	option delegate '0'
+	option defaultroute '0'
+	list addresses '192.168.125.254/32'
+	list addresses '58.37.233.229/32'
+
+config wireguard_WireGuard
+	option route_allowed_ips '1'
+	option description 'Hiwifi-3'
+	option public_key 'public_key1'
+	list allowed_ips '192.168.125.249/32'
+	list allowed_ips '192.168.128.0/24'
+	option persistent_keepalive '20'
+
+config wireguard_WireGuard
+	option description 'iPhone-Y'
+	option public_key 'public_key2'
+	option route_allowed_ips '1'
+	list allowed_ips '192.168.125.245/32'
+
+config wireguard_WireGuard
+	option route_allowed_ips '1'
+	option description 'MAC'
+	option public_key 'public_key3'
+	list allowed_ips '192.168.125.241/32'
+
+config wireguard_WireGuard
+	option description 'Ubuntu-VM'
+	option public_key 'public_key4'
+	option route_allowed_ips '1'
+	list allowed_ips '192.168.125.238/32'
+	list allowed_ips '192.168.128.238/32'
+
+config wireguard_WireGuard
+	option description 'Phicomm-k2'
+	option public_key 'public_key5'
+	list allowed_ips '192.168.125.236/32'
+	list allowed_ips '192.168.126.0/24'
+	option route_allowed_ips '1'
+	option persistent_keepalive '20'
+
