@@ -35,10 +35,10 @@ env:
   #REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.openwrt
-  CONFIG_FILE: config.d2.openwrt
+  FEEDS_CONF: feeds.conf.charles
+  CONFIG_FILE: config.d2.charles
   FILES: d2/files
-  DIY_SH: diy-openwrt-d2.sh
+  DIY_SH: diy-d2-charles.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
@@ -50,7 +50,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-20.04
-
 
     steps:
     - name: Checkout
