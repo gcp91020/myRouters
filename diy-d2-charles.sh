@@ -26,7 +26,7 @@ if [[ -e files ]]; then
 fi
 
 if [[ -e ../charles/files/etc/config/network ]]; then
-  /bin/cp -f ../charles/files/etc/config/network files/etc/config/network
+  /bin/cp -f ../charles/files/etc/config/* files/etc/config/
 fi
 
 #ls -l files/etc/config
