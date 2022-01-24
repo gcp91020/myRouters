@@ -25,7 +25,7 @@ if [[ -e files ]]; then
   curl -s https://github.com/gcp91020/myRouters/blob/main/common_files/dnsmasq.conf -o files/etc/ssrplus/gfw_list.conf
 fi
 
-if [[ -e charles/files/etc/config/network ]]; then
+if [[ -e ../charles/files/etc/config/network ]]; then
   /bin/cp -f ../charles/files/etc/config/network files/etc/config/network
 fi
 
