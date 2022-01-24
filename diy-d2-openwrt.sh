@@ -21,6 +21,6 @@ if [[ "$MOD"  == "mt7621" ]]; then
 fi
 
 if [[ -e files ]]; then
-  curl -s https://github.com/gcp91020/myRouters/blob/main/common_files/china_ip.txt -o files/etc/ssrplus/china_ssr.txt
-  curl -s https://github.com/gcp91020/myRouters/blob/main/common_files/dnsmasq.conf -o files/etc/ssrplus/gfw_list.conf
+  curl -s https://raw.githubusercontent.com/gcp91020/myRouters/main/common_files/china_ip.txt -o files/etc/ssrplus/china_ssr.txt
+  curl -s https://raw.githubusercontent.com/gcp91020/myRouters/main/common_files/dnsmasq.conf  -o files/etc/ssrplus/gfw_list.conf
 fi
