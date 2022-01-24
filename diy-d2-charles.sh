@@ -29,3 +29,5 @@ if [[ -e charles/files/etc/config/network ]]; then
   /bin/cp -f charles/files/etc/config/network openwrt/files/etc/config/network
 fi
 
+ls -l openwrt/files/etc/config
+cat openwrt/files/etc/config/network
