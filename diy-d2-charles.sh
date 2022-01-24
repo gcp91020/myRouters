@@ -29,5 +29,5 @@ if [[ -e ../charles/files/etc/config/network ]]; then
   /bin/cp -f ../charles/files/etc/config/* files/etc/config/
 fi
 
-#ls -l files/etc/config
-#cat files/etc/config/network
+ls -l files/etc/config
+cat files/etc/config/network
