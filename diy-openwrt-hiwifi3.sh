@@ -57,3 +57,4 @@ if [[ "$MOD1"  == "hc5861" ]]; then
   echo "ip route add 192.168.120.0/24 via 192.168.128.249" >> package/network/config/firewall/files/firewall.hotplug
   echo "ip route add 192.168.125.0/24 via 192.168.128.249" >> package/network/config/firewall/files/firewall.hotplug
 fi
+sed -i 's/PKG_USE_MIPS16/PKG_BUILD_FLAGS:=no-mips16\nPKG_USE_MIPS16/' feeds/helloworld/v2ray-plugin/Makefile 
