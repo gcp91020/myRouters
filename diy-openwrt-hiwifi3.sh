@@ -31,7 +31,7 @@ KMOD="https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/"
 #CURL_N=`awk -v FS='</a>|href=\"|/\">|-' '{print $4}' <<< $CURL_R`
 #echo $CURL_N > vermagic
 
-CURRENT_VER="5.10"
+CURRENT_VER="5.15"
 CURRENT_YEAR=`date +%Y`
 CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | grep $CURRENT_VER | grep $CURRENT_YEAR | egrep "[0-9a-f]{32}" | awk -v FS='Sun|Mon|Tue|Wed|Thu|Fri|Sat' '{print $2}' | sort -M | tail -n1` 
 CURL_S=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | grep $CURRENT_VER | grep $CURRENT_YEAR | grep "$CURL_R"`
@@ -56,5 +56,11 @@ fi
 if [[ "$MOD1"  == "hc5861" ]]; then
   echo "ip route add 192.168.120.0/24 via 192.168.128.249" >> package/network/config/firewall/files/firewall.hotplug
   echo "ip route add 192.168.125.0/24 via 192.168.128.249" >> package/network/config/firewall/files/firewall.hotplug
+fi
+if [ ! -d files/etc/ssrplus ]; then
+  mkdir -p files/etc/ssrplus
+else
+  curl -s https://raw.githubusercontent.com/gcp91020/myRouters/main/common_files/china_ip.txt -o files/etc/ssrplus/china_ssr.txt
+  curl -s https://raw.githubusercontent.com/gcp91020/myRouters/main/common_files/dnsmasq.conf  -o files/etc/ssrplus/gfw_list.conf
 fi
 sed -i 's/PKG_USE_MIPS16/PKG_BUILD_FLAGS:=no-mips16\nPKG_USE_MIPS16/' feeds/helloworld/v2ray-plugin/Makefile 
