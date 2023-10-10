@@ -24,6 +24,7 @@ env:
   FEEDS_CONF: feeds.conf.hiwifi-3
   CONFIG_FILE: config.hiwif-3
   DIY_SH: diy-openwrt-hiwifi3.sh
+  K_NAME: hiwifi3-openwrt
   FILES: hiwifi3/files
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
