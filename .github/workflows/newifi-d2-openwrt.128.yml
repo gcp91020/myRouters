@@ -7,7 +7,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Build Newifi-d2 openwrt
+name: Build Newifi-d2-128 openwrt
 
 on:
   repository_dispatch:
@@ -40,7 +40,7 @@ env:
   CONFIG_FILE: config.d2.openwrt.128
   FILES: d2.128/files
   DIY_SH: diy-openwrt-d2-128.sh
-  K_NAME: d2-openwrt
+  K_NAME: d2-openwrt-128
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
