@@ -38,8 +38,8 @@ env:
   #REPO_BRANCH: openwrt-22.03
   FEEDS_CONF: feeds.conf.d2.128
   CONFIG_FILE: config.d2.openwrt.128
-  FILES: d2/files
-  DIY_SH: diy-openwrt-d2.128.sh
+  FILES: d2.128/files
+  DIY_SH: diy-openwrt-d2-128.sh
   K_NAME: d2-openwrt
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
