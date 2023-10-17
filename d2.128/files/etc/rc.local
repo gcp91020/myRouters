@@ -1,0 +1,10 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+sleep 30 && [ ! -e /opt/YAMon4 ] && mkdir -p /opt/YAMon4
+[ ! -e /tmp/www ] && ln -s  /opt/YAMon4/webroot /tmp/www 
+rm -rf /tmp/yamon && ln -s /tmp/www /tmp/yamon 
+
+[ -e /opt/YAMon4 ] && [ ! -e /opt/YAMon4/virtual.txt ]  && mount -t tmpfs -o size=100m tmpfs /opt/YAMon4 && touch /opt/YAMon4/virtual.txt
+[ ! -e /opt/YAMon4/start.sh ] && /root/start_yamon.sh
+
+exit 0
