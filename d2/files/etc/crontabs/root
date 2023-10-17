@@ -1,2 +1,0 @@
-0 5 * * * /sbin/reboot
-2,12,22,32,42,52 * * * * /bin/sh /root/publicip.sh >/dev/null 2>&1
