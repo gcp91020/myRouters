@@ -6,6 +6,9 @@
 202.96.209.6 s.go.sohu.com
 #202.96.209.6 js.sohu.com
 202.96.209.6 qpb.sohu.com
+127.0.0.1 qpb0.sohu.com
+127.0.0.1 qpb1.sohu.com
+127.0.0.1 fpb1.sohu.com
 202.96.209.6 i.go.sohu.com
 202.96.209.6 t.go.sohu.com
 202.96.209.6 cis.sohu.com
