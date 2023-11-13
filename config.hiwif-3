@@ -897,3 +897,7 @@ CONFIG_OPENSSL_ENGINE=y
 CONFIG_WPA_WOLFSSL=n
 CONFIG_PACKAGE_wpad-basic-mbedtls=y
 CONFIG_PACKAGE_wpad-basic-wolfssl=n
+CONFIG_PACKAGE_tcpdump=y
+CONFIG_PACKAGE_libcurl=y
+CONFIG_PACKAGE_curl=y
+CONFIG_PACKAGE_etherwake=y
