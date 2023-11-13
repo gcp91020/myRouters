@@ -877,3 +877,7 @@ CONFIG_STRACE_NONE=y
 CONFIG_PACKAGE_ubi-utils=y
 CONFIG_PACKAGE_ucode-mod-html=y
 CONFIG_PACKAGE_ucode-mod-lua=y
+CONFIG_PACKAGE_libcurl=y
+CONFIG_PACKAGE_curl=y
+CONFIG_PACKAGE_etherwake=y
+CONFIG_PACKAGE_tcpdump=y
