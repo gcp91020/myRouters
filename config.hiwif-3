@@ -901,3 +901,5 @@ CONFIG_PACKAGE_tcpdump=y
 CONFIG_PACKAGE_libcurl=y
 CONFIG_PACKAGE_curl=y
 CONFIG_PACKAGE_etherwake=y
+CONFIG_PACKAGE_mwan3=y
+CONFIG_PACKAGE_luci-app-mwan3=y
