@@ -730,3 +730,7 @@ CONFIG_STRACE_NONE=y
 CONFIG_PACKAGE_ucode-mod-html=y
 CONFIG_PACKAGE_mwan3=n
 CONFIG_PACKAGE_luci-app-mwan3=n
+CONFIG_PACKAGE_kmod-wireguard=y
+CONFIG_PACKAGE_wireguard-tools=y
+CONFIG_PACKAGE_luci-proto-wireguard=y
+
