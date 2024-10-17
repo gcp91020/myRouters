@@ -20,6 +20,8 @@ sed -i 's/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell \$(SCRIPT_DIR)\/kconfig.pl \$(LI
 sed -i 's/loglevel:-5/loglevel:-9/' package/utils/busybox/files/cron
 # modify openwrt/blob/master/include/target.mk, conflict with dnsmasq-full
 sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
+# fix libpcre missing
+sed -i 's=+libpcre \\=+libpcre2 \\=' package/feeds/telephony/freeswitch/Makefile
 
 if [[ "$MOD"  == "mt7621" ]]; then
   echo "ip route add 192.168.128.0/24 via 192.168.125.253" >> package/network/config/firewall/files/firewall.hotplug
