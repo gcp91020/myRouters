@@ -22,6 +22,7 @@ sed -i 's/loglevel:-5/loglevel:-9/' package/utils/busybox/files/cron
 sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
 # fix libpcre missing
 sed -i 's=+libpcre =+libpcre2 =' package/feeds/telephony/freeswitch/Makefile
+grep libpcre package/feeds/telephony/freeswitch/Makefile
 
 if [[ "$MOD"  == "mt7621" ]]; then
   echo "ip route add 192.168.128.0/24 via 192.168.125.253" >> package/network/config/firewall/files/firewall.hotplug
