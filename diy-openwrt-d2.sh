@@ -19,13 +19,12 @@ sed -i "s/grep '=\[ym\]' \$(LINUX_DIR)\/.config.set | LC_ALL=C sort | \$(MKHASH)
 sed -i 's/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell \$(SCRIPT_DIR)\/kconfig.pl \$(LINUX_DIR)\/.config | mkhash md5)/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell cat \$(LINUX_DIR)\/.vermagic)/' package/kernel/linux/Makefile
 sed -i 's/loglevel:-5/loglevel:-9/' package/utils/busybox/files/cron
 # modify openwrt/blob/master/include/target.mk, conflict with dnsmasq-full
-# sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
+sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
+sed -i 's=odhcp6c \\=#odhcp6c \\=' include/target.mk
+sed -i 's=odhcpd-ipv6only \\=#odhcpd-ipv6only \\=' include/target.mk
+sed -i 's=ppp \\=#ppp \\=' include/target.mk
+sed -i 's=ppp-mod-pppoe \\=#ppp-mod-pppoe \\=' include/target.mk
 sed -i 's=kmod-nft-offload \\=kmod-nft-offload=' include/target.mk
-sed -i '/dnsmasq \\/d' include/target.mk
-sed -i '/odhcp6c \\/d' include/target.mk
-sed -i '/odhcpd-ipv6only \\/d' include/target.mk
-sed -i '/ppp \\/d' include/target.mk
-sed -i '/ppp-mod-pppoe/d' include/target.mk
 
 # openssl in ssr-check 
 # sed -i 's/+shadowsocksr-libev-ssr-check//' feeds/helloworld/luci-app-ssr-plus/Makefile
