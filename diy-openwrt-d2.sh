@@ -20,6 +20,7 @@ sed -i 's/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell \$(SCRIPT_DIR)\/kconfig.pl \$(LI
 sed -i 's/loglevel:-5/loglevel:-9/' package/utils/busybox/files/cron
 # modify openwrt/blob/master/include/target.mk, conflict with dnsmasq-full
 sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
+sed -i 's=ppp \\=#ppp \\=' include/target.mk
 # fix libpcre missing
 sed -i 's=+libpcre =+libpcre2 =' package/feeds/telephony/freeswitch/Makefile
 grep libpcre package/feeds/telephony/freeswitch/Makefile
