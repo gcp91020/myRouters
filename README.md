@@ -1,5 +1,7 @@
 myRouters
 
+
+
 current version https://downloads.openwrt.org/snapshots/targets/ramips/
 ```
 docker run -v ~/openwrt:/home/user -it --name openwrt openwrt_builder /bin/bash
