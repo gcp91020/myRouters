@@ -8,6 +8,7 @@ MOD=`awk -v FS='[_=\n]' '{print $4}' <<< $MOD`
 KMOD="https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/"
 # CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | egrep "[0-9a-f]{32}" |sort | tail -n1`
 # CURL_N=`awk -v FS='</a>|href=\"|/\">|-' '{print $4}' <<< $CURL_R`
+# please check the version from https://downloads.openwrt.org/snapshots/targets/ramips/ 
 CURRENT_VER="6.6"
 CURRENT_YEAR=`date +%Y`
 CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | grep $CURRENT_VER | grep $CURRENT_YEAR | egrep "[0-9a-f]{32}" | awk -v FS='Sun|Mon|Tue|Wed|Thu|Fri|Sat' '{print $2}' | sort -M | tail -n1` 
