@@ -23,7 +23,7 @@ sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
 sed -i 's=odhcp6c \\=#odhcp6c \\=' include/target.mk
 sed -i 's=odhcpd-ipv6only \\=#odhcpd-ipv6only \\=' include/target.mk
 sed -i 's=ppp \\=#ppp \\=' include/target.mk
-sed -i 's=ppp-mod-pppoe \\=#ppp-mod-pppoe \\=' include/target.mk
+sed -i 's=ppp-mod-pppoe=#ppp-mod-pppoe=' include/target.mk
 sed -i 's=kmod-nft-offload \\=kmod-nft-offload=' include/target.mk
 
 # openssl in ssr-check 
