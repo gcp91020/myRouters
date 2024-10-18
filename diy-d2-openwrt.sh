@@ -22,6 +22,14 @@ sed -i 's/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell \$(SCRIPT_DIR)\/kconfig.pl \$(LI
 # modify openwrt/blob/master/include/target.mk, conflict with dnsmasq-full
 sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
 
+sed -i 's=kmod-nft-offload \\=kmod-nft-offload=' include/target.mk
+sed -i '/dnsmasq \\/d' include/target.mk
+sed -i '/odhcp6c \\/d' include/target.mk
+sed -i '/odhcpd-ipv6only \\/d' include/target.mk
+sed -i '/ppp \\/d' include/target.mk
+sed -i '/ppp-mod-pppoe/d' include/target.mk
+
+
 if [[ "$MOD"  == "mt7621" ]]; then
   echo "ip route add 192.168.128.0/24 via 192.168.125.253" >> package/network/config/firewall/files/firewall.hotplug
 fi
