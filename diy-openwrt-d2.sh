@@ -28,7 +28,7 @@ sed -i '/ppp \\/d' include/target.mk
 sed -i '/ppp-mod-pppoe/d' include/target.mk
 
 # openssl in ssr-check 
-sed -i 's/+shadowsocksr-libev-ssr-check//' feeds/helloworld/luci-app-ssr-plus/Makefile
+# sed -i 's/+shadowsocksr-libev-ssr-check//' feeds/helloworld/luci-app-ssr-plus/Makefile
 
 # fix libpcre missing
 sed -i 's=+libpcre =+libpcre2 =' package/feeds/telephony/freeswitch/Makefile
