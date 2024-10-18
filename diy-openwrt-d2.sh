@@ -19,8 +19,14 @@ sed -i "s/grep '=\[ym\]' \$(LINUX_DIR)\/.config.set | LC_ALL=C sort | \$(MKHASH)
 sed -i 's/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell \$(SCRIPT_DIR)\/kconfig.pl \$(LINUX_DIR)\/.config | mkhash md5)/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell cat \$(LINUX_DIR)\/.vermagic)/' package/kernel/linux/Makefile
 sed -i 's/loglevel:-5/loglevel:-9/' package/utils/busybox/files/cron
 # modify openwrt/blob/master/include/target.mk, conflict with dnsmasq-full
-sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
-sed -i 's=ppp \\=#ppp \\=' include/target.mk
+# sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
+sed -i 's=kmod-nft-offload \\=kmod-nft-offload=' include/target.mk
+sed -i '/dnsmasq \\/d' include/target.mk
+sed -i '/odhcp6c \\/d' include/target.mk
+sed -i '/odhcpd-ipv6only \\/d' include/target.mk
+sed -i '/ppp \\/d' include/target.mk
+sed -i '/ppp-mod-pppoe/d' include/target.mk
+
 # fix libpcre missing
 sed -i 's=+libpcre =+libpcre2 =' package/feeds/telephony/freeswitch/Makefile
 grep libpcre package/feeds/telephony/freeswitch/Makefile
