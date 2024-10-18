@@ -861,3 +861,4 @@ CONFIG_STRACE_NONE=y
 CONFIG_PACKAGE_ubi-utils=y
 CONFIG_PACKAGE_ucode-mod-html=y
 CONFIG_PACKAGE_ucode-mod-lua=y
+CONFIG_PACKAGE_luci-compat=y
