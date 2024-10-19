@@ -31,7 +31,7 @@ KMOD="https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/"
 #CURL_N=`awk -v FS='</a>|href=\"|/\">|-' '{print $4}' <<< $CURL_R`
 #echo $CURL_N > vermagic
 
-CURRENT_VER="5.15"
+CURRENT_VER="6.6"
 CURRENT_YEAR=`date +%Y`
 CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | grep $CURRENT_VER | grep $CURRENT_YEAR | egrep "[0-9a-f]{32}" | awk -v FS='Sun|Mon|Tue|Wed|Thu|Fri|Sat' '{print $2}' | sort -M | tail -n1` 
 CURL_S=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | grep $CURRENT_VER | grep $CURRENT_YEAR | grep "$CURL_R"`
@@ -49,6 +49,14 @@ sed -i 's/loglevel:-5/loglevel:-9/' package/utils/busybox/files/cron
 #fix cron log = error
 # modify openwrt/blob/master/include/target.mk, conflict with dnsmasq-full
 sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
+sed -i 's=libpcre=libpcre2=' package/feeds/telephony/freeswitch/Makefile
+
+sed -i 's=odhcp6c \\=#odhcp6c \\=' include/target.mk
+sed -i 's=odhcpd-ipv6only \\=#odhcpd-ipv6only \\=' include/target.mk
+sed -i 's=ppp \\=#ppp \\=' include/target.mk
+sed -i 's=ppp-mod-pppoe=#ppp-mod-pppoe=' include/target.mk
+sed -i 's=kmod-nft-offload \\=kmod-nft-offload=' include/target.mk
+
 
 if [[ "$MOD"  == "mt7621" ]]; then
   #sed -i "s/kmod-mt7603/kmod-mt7603e/" target/linux/ramips/image/mt7621.mk
