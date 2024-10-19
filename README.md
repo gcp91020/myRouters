@@ -1,12 +1,13 @@
 myRouters
 
+```
 CONFIG_PACKAGE_luci-compat=y  # without this, luci ssr will failed to load
 CONFIG_PACKAGE_luci-proto-wireguard=y
 CONFIG_PACKAGE_libcurl=y
 CONFIG_PACKAGE_curl=y
 CONFIG_PACKAGE_etherwake=y  # etherwake -D -i br-lan -b -p 9 $MAC
 CONFIG_PACKAGE_tcpdump=y
-
+```
 
 
 current version https://downloads.openwrt.org/snapshots/targets/ramips/
