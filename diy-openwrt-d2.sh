@@ -45,4 +45,6 @@ curl -s https://raw.githubusercontent.com/gcp91020/myRouters/main/common_files/c
 curl -s https://raw.githubusercontent.com/gcp91020/myRouters/main/common_files/dnsmasq.conf  -o files/etc/ssrplus/gfw_list.conf
 sed -i 's/PKG_USE_MIPS16/PKG_BUILD_FLAGS:=no-mips16\nPKG_USE_MIPS16/' feeds/helloworld/v2ray-plugin/Makefile
 
+[ -e ../2024-dnsmasq.patch ] && /bin/cp ../2024-dnsmasq.patch package/network/services/dnsmasq/patches/
+
 echo "diy done"
