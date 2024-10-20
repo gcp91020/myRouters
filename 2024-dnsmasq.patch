@@ -1,0 +1,12 @@
+--- a/src/rfc1035.c
++++ b/src/rfc1035.c
+@@ -2143,7 +2143,7 @@ size_t answer_request(struct dns_header *header, char *limit, size_t qlen,
+       if (qtype == T_MAILB)
+        ans = 1, nxdomain = 1, sec_data = 0;
+
+-      if (qtype == T_SOA && option_bool(OPT_FILTER))
++      if ((qtype == T_SOA || qtype == T_PTR || qtype == 65) && option_bool(OPT_FILTER))
+        {
+          ans = 1;
+          sec_data = 0;
+          
