@@ -82,6 +82,7 @@ jobs:
       run: |
         [ -e $FILES ] && /bin/cp -r $FILES openwrt/files && ls openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        [ -e '2024-dnsmasq.patch' ] && /bin/cp -r '2024-dnsmasq.patch' openwrt/package/network/services/dnsmasq/patches && ls openwrt/package/network/services/dnsmasq/patches
         chmod +x $DIY_SH
         cd openwrt
         ../$DIY_SH
