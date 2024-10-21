@@ -12,7 +12,7 @@ change to "if ((qtype == T_SOA || qtype == 65) && option_bool(OPT_FILTER))" \
 git diff rfc1035.c.origin rfc1035.c \
 calculate the offset \
 for 2.90, change the offset from 2143 to 2211, because the origin patches add total 68 lines 
-
+don't edit the patch file with sublime
 
 ```
 CONFIG_PACKAGE_luci-compat=y  # without this, luci ssr will failed to load
