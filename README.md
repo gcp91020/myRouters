@@ -1,4 +1,18 @@
+
 myRouters
+
+Oct 21, 2024, modify dnsmasq
+
+Too many DNS requests cause network congestion
+new dnsmasq support min-cache-ttl
+block dns type 65 which is for HTTPS
+check dnsmasq Makefile and patches , download the xz from origin, find "if (qtype == T_SOA && option_bool(OPT_FILTER))"
+change to "if ((qtype == T_SOA || qtype == 65) && option_bool(OPT_FILTER))"
+
+git diff rfc1035.c.origin rfc1035.c
+calculate the offset
+for 2.90, change the offset from 2143 to 2211, because the origin patches add total 68 lines 
+
 
 ```
 CONFIG_PACKAGE_luci-compat=y  # without this, luci ssr will failed to load
