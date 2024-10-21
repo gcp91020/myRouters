@@ -46,7 +46,7 @@ curl -s https://raw.githubusercontent.com/gcp91020/myRouters/main/common_files/d
 sed -i 's/PKG_USE_MIPS16/PKG_BUILD_FLAGS:=no-mips16\nPKG_USE_MIPS16/' feeds/helloworld/v2ray-plugin/Makefile
 
 [ -e ../2024-dnsmasq.patch ] && /bin/cp ../2024-dnsmasq.patch package/network/services/dnsmasq/patches/ && ls -l package/network/services/dnsmasq/patches/
-cat package/network/services/dnsmasq/src/rfc1035.c
+[ -e package/network/services/dnsmasq/src/rfc1035.c ] && cat package/network/services/dnsmasq/src/rfc1035.c
 # [ -e ../200-ubus_dns.patch ] && /bin/cp ../200-ubus_dns.patch package/network/services/dnsmasq/patches/
 
 echo "diy done"
