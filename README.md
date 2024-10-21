@@ -1,9 +1,9 @@
 
 myRouters
 
-Oct 21, 2024, modify dnsmasq
+Oct 21, 2024, modify dnsmasq \
 
-Too many DNS requests cause network congestion
+Too many DNS requests cause network congestion \
 new dnsmasq support min-cache-ttl
 block dns type 65 which is for HTTPS
 check dnsmasq Makefile and patches , download the xz from origin, find "if (qtype == T_SOA && option_bool(OPT_FILTER))"
