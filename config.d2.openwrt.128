@@ -878,5 +878,5 @@ CONFIG_PACKAGE_ubi-utils=y
 CONFIG_PACKAGE_ucode-mod-html=y
 CONFIG_PACKAGE_ucode-mod-lua=y
 CONFIG_PACKAGE_luci-app-mwan3=y
-CONFIG_PACKAGE_mwan3=y
+# CONFIG_PACKAGE_mwan3=y
 CONFIG_PACKAGE_opkg=y
