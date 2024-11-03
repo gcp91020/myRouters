@@ -877,3 +877,6 @@ CONFIG_STRACE_NONE=y
 CONFIG_PACKAGE_ubi-utils=y
 CONFIG_PACKAGE_ucode-mod-html=y
 CONFIG_PACKAGE_ucode-mod-lua=y
+CONFIG_DEFAULT_opkg=y
+CONFIG_PACKAGE_opkg=y
+CONFIG_PACKAGE_luci-app-opkg=y
