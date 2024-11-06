@@ -1,7 +1,7 @@
 diff --git a/src/rfc1035.c.bak b/src/rfc1035.c.mod
 index cd1fff5..fea3d59 100644
---- a/src/rfc1035.c.bak
-+++ b/src/rfc1035.c.mod
+--- a/src/rfc1035.c
++++ b/src/rfc1035.c
 @@ -2047,7 +2047,7 @@ size_t answer_request(struct dns_header *header, char *limit, size_t qlen,
  	  if (qtype == T_MAILB)
  	    ans = 1, nxdomain = 1, sec_data = 0;
