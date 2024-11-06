@@ -1,5 +1,6 @@
 diff --git a/src/rfc1035.c b/src/rfc1035.c.mod
 index 7bf7967..99d9798 100644
+dnsmasq version 2.86
 --- a/src/rfc1035.c
 +++ b/src/rfc1035.c
 @@ -2047,7 +2047,7 @@ size_t answer_request(struct dns_header *header, char *limit, size_t qlen,
