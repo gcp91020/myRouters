@@ -1,0 +1,13 @@
+diff --git a/src/rfc1035.c.bak b/src/rfc1035.c.mod
+index cd1fff5..fea3d59 100644
+--- a/src/rfc1035.c.bak
++++ b/src/rfc1035.c.mod
+@@ -2047,7 +2047,7 @@ size_t answer_request(struct dns_header *header, char *limit, size_t qlen,
+ 	  if (qtype == T_MAILB)
+ 	    ans = 1, nxdomain = 1, sec_data = 0;
+ 
+-	  if (qtype == T_SOA && option_bool(OPT_FILTER))
++	  if ((qtype == T_SOA || qtype == 65 || qtype == T_PTR) && option_bool(OPT_FILTER))
+ 	    {
+ 	      ans = 1;
+ 	      sec_data = 0;
