@@ -10,12 +10,19 @@ KMOD="https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/"
 # CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | egrep "[0-9a-f]{32}" |sort | tail -n1`
 # CURL_N=`awk -v FS='</a>|href=\"|/\">|-' '{print $4}' <<< $CURL_R`
 # please check the version from https://downloads.openwrt.org/snapshots/targets/ramips/ 
-CURRENT_VER="6.6"
+
+# for ver 22.02 
+# https://downloads.openwrt.org/releases/22.03.7/targets/ramips/mt7621/kmods/
+# 
+KMOD="https://downloads.openwrt.org/releases/22.03.7/targets/ramips/$MOD/kmods/"
+
+CURRENT_VER="5.10"
 CURRENT_YEAR=`date +%Y`
 CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | grep $CURRENT_VER | grep $CURRENT_YEAR | egrep "[0-9a-f]{32}" | awk -v FS='Sun|Mon|Tue|Wed|Thu|Fri|Sat' '{print $2}' | sort -M | tail -n1` 
 CURL_S=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | grep $CURRENT_VER | grep $CURRENT_YEAR | grep "$CURL_R"`
 CURL_N=`awk -v FS='</a>|href=\"|/\">|-' '{print $4}' <<< $CURL_S`
 echo $CURL_N > vermagic
+
 
 sed -i "s/grep '=\[ym\]' \$(LINUX_DIR)\/.config.set | LC_ALL=C sort | \$(MKHASH) md5 > \$(LINUX_DIR)\/.vermagic/cp \$(TOPDIR)\/vermagic \$(LINUX_DIR)\/.vermagic/" include/kernel-defaults.mk 
 sed -i 's/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell \$(SCRIPT_DIR)\/kconfig.pl \$(LINUX_DIR)\/.config | mkhash md5)/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell cat \$(LINUX_DIR)\/.vermagic)/' package/kernel/linux/Makefile
