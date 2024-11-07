@@ -40,7 +40,7 @@ env:
   CONFIG_FILE: config.d2.openwrt.22.03
   FILES: d2/files
   DIY_SH: diy-openwrt-d2.22.03.sh
-  K_NAME: d2-openwrt
+  K_NAME: d2-openwrt-v22
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
