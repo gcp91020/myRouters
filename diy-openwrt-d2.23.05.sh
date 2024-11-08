@@ -6,11 +6,12 @@ set -x
 CONF_FILE=".config"
 MOD=`egrep "^CONFIG_TARGET_ramips_[^_]+=y" $CONF_FILE`
 MOD=`awk -v FS='[_=\n]' '{print $4}' <<< $MOD`
-KMOD="https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/"
+
 # CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | egrep "[0-9a-f]{32}" |sort | tail -n1`
 # CURL_N=`awk -v FS='</a>|href=\"|/\">|-' '{print $4}' <<< $CURL_R`
 # please check the version from https://downloads.openwrt.org/snapshots/targets/ramips/ 
 
+# KMOD="https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/"
 # for ver 22.02 
 # https://downloads.openwrt.org/releases/22.03.7/targets/ramips/mt7621/kmods/
 # 
@@ -18,8 +19,8 @@ KMOD="https://downloads.openwrt.org/releases/23.05.5/targets/ramips/$MOD/kmods/"
 
 CURRENT_VER="5.15"
 CURRENT_YEAR=`date +%Y`
-CURL_R=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | grep $CURRENT_VER | grep $CURRENT_YEAR | egrep "[0-9a-f]{32}" | awk -v FS='Sun|Mon|Tue|Wed|Thu|Fri|Sat' '{print $2}' | sort -M | tail -n1` 
-CURL_S=`curl -s "https://downloads.openwrt.org/snapshots/targets/ramips/$MOD/kmods/" | grep $CURRENT_VER | grep $CURRENT_YEAR | grep "$CURL_R"`
+CURL_R=`curl -s "$KMOD" | grep $CURRENT_VER | grep $CURRENT_YEAR | egrep "[0-9a-f]{32}" | awk -v FS='Sun|Mon|Tue|Wed|Thu|Fri|Sat' '{print $2}' | sort -M | tail -n1` 
+CURL_S=`curl -s "$KMOD" | grep $CURRENT_VER | grep $CURRENT_YEAR | grep "$CURL_R"`
 CURL_N=`awk -v FS='</a>|href=\"|/\">|-' '{print $4}' <<< $CURL_S`
 echo $CURL_N > vermagic
 
