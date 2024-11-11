@@ -36,7 +36,7 @@ sed -i 's=ppp \\=#ppp \\=' include/target.mk
 sed -i 's=ppp-mod-pppoe=#ppp-mod-pppoe=' include/target.mk
 sed -i 's=kmod-nft-offload \\=kmod-nft-offload=' include/target.mk
 
-sed -i 's/192\.168\.1\./192.168.129./' .config
+sed -i 's/192\.168\.1\./192.168.120./' .config
 
 # openssl in ssr-check 
 # sed -i 's/+shadowsocksr-libev-ssr-check//' feeds/helloworld/luci-app-ssr-plus/Makefile
