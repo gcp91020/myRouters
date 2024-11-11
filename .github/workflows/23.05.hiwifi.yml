@@ -36,10 +36,10 @@ env:
   REPO_URL: https://github.com/openwrt/openwrt
   #REPO_BRANCH: master
   REPO_BRANCH: v23.05.5
-  FEEDS_CONF: 23.05/hiwifi3/feeds.conf
-  CONFIG_FILE: 23.05/hiwifi3/config.default
+  FEEDS_CONF: ./23.05/hiwifi3/feeds.conf
+  CONFIG_FILE: ./23.05/hiwifi3/config.default
   FILES: hiwifi3/files
-  DIY_SH: 23.05/hiwifi3/diy.sh
+  DIY_SH: ./23.05/hiwifi3/diy.sh
   K_NAME: hiwifi-v23
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
@@ -62,6 +62,7 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         set -x
+        pwd
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
         sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2004)
